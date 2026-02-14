@@ -6,3 +6,4 @@ struct Node {
     Node* prev = nullptr;
     Node* next = nullptr;
 };
+
