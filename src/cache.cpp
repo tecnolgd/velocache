@@ -29,3 +29,13 @@ int main(){
 
     return 0;
 }
+
+void disconnect(Node *n){
+    
+    if(n->prev != nullptr){
+        n->prev->next = n->next;
+    }
+    if(n->next != nullptr){
+        n->next->prev = n->prev;
+    }
+}
