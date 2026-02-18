@@ -30,12 +30,23 @@ int main(){
     return 0;
 }
 
-void disconnect(Node *n){
+void disconnect(Node *n){  //to remove a node and set other nodes as nothing happened (making sure the chain doesn't break)
     
     if(n->prev != nullptr){
         n->prev->next = n->next;
     }
     if(n->next != nullptr){
         n->next->prev = n->prev;
+    }
+}
+
+void deleteNode(Node * &head){  //deleting a node from start ; &head --> to make sure the actual head pointer is moved
+    Node *current = head;
+    while(current != nullptr){
+        Node *newnode = current->next;
+        std::cout<<"Deleting : %s"<<current->value<<std::endl;
+        delete current;
+        current = newnode; //current points to next node
+
     }
 }
