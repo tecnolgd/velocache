@@ -1,17 +1,5 @@
-#include <iostream>
-#include <unordered_map>
-#include <string>
-
-struct Node {
-    std::string key;
-    std::string value;
-    Node* prev;
-    Node* next;
-};
-std::string getValue(std::string key);
-void attachToHead(Node* &n);
-void disconnect(Node* n);
-void printData();
+//cache.cpp --> main engine of LRU eviction based cache
+# include "../include/velocache/cache.hpp"
 
 std::unordered_map<std::string, Node*> cacheMap;
 Node* head = nullptr;
