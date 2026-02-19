@@ -14,24 +14,24 @@ Node* head = nullptr;
 Node* tail = nullptr;
 
 int main(){
-    Node* first = new Node();
-    Node* second = new Node();
-    Node* third = new Node();
+    int number;
+    std::string userName, data;
+    std::cout<<"Enter number of users: ";
+    std::cin>>number;
+    for(int i=0; i<number; i++){
+        Node* temp = new Node{ userName, data};
+        std::cout<<"Enter username- ">>i+1>>"and its data: ";
+        std::cin>>temp->key>>temp->value;
+        temp->prev= nullptr;
+        temp->next = nullptr;
+        if(head != nullptr){
+            head->prev = temp;
+        }
+        head = temp;
+    }
+    printData();
+    std::cout<<""
 
-    first->value = "10";
-    second->value = "20";
-    third->value = "30";
-
-    first->next = third;
-    first->prev = second;
-    second->prev = nullptr;
-    second->next = first;
-    third->prev = first;
-    third->next = nullptr;
-
-    std::cout<<"First node data: "<<third->prev->prev->value<<std::endl;
-    std::cout<<"Second node data: "<<first->next->value<<std::endl;
-    std::cout<<" third node data: "<<third->prev->prev->value<<std::endl;
 
     return 0;
 }
