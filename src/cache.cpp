@@ -1,5 +1,6 @@
 #include <iostream>
-#include <unodored_map>
+#include <unordered_map>
+#include <string>
 
 struct Node {
     std::string key;
@@ -7,6 +8,10 @@ struct Node {
     Node* prev;
     Node* next;
 };
+
+std::unordered_map<std::string, Node*> cacheMap;
+Node* head = nullptr;
+Node* tail = nullptr;
 
 int main(){
     Node* first = new Node();
@@ -36,20 +41,29 @@ void disconnect(Node *n){  //to remove a node and set other nodes as nothing hap
     if(n->prev != nullptr){
         n->prev->next = n->next;
     }
+    else{
+        head = n->next;
+    }
     if(n->next != nullptr){
         n->next->prev = n->prev;
     }
-}
-
-void deleteNode(Node * &head){  //deleting a node from start ; &head --> to make sure the actual head pointer is moved
-    Node *current = head;
-    while(current != nullptr){
-        Node *newnode = current->next;
-        std::cout<<"Deleting : %s"<<current->value<<std::endl;
-        delete current;
-        current = newnode; //current points to next node
-
+    else{
+        tail = n->prev;
     }
 }
 
-std::unodored_map <std::string, Node*> cacheMap;
+void attachToHead(Node * &n){  //to move the detached or 'plucked' node to the front making it the first node(recently used)
+    n->next = head;
+    n->prev = nullptr;
+    if(head != nullptr){
+        head->prev =n;
+    }
+
+    head = n;
+    if(tail == nullptr){
+        tail = n;
+    }
+
+    
+}
+
