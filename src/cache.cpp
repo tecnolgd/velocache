@@ -63,7 +63,17 @@ void attachToHead(Node * &n){  //to move the detached or 'plucked' node to the f
     if(tail == nullptr){
         tail = n;
     }
+  
+}
 
-    
+std::string getValue(std::string key){
+    if(cacheMap.find(key) == cacheMap.end()){
+        return "Value NOT found!\n";
+    }
+    Node *target = cacheMap[key];
+
+    disconnect(target);
+    attachToHead(target);
+    return target->value;
 }
 
