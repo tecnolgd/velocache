@@ -30,8 +30,8 @@ int main(){
         head = temp;
     }
     printData();
-    std::cout<<""
-
+    std::cout<<"Getting data: "<< getValue("user1")<<std::endl;
+    printData();
 
     return 0;
 }
