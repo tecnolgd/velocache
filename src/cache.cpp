@@ -77,3 +77,12 @@ std::string getValue(std::string key){
     return target->value;
 }
 
+void printData(){
+    Node* current = head;
+    std::cout<<"List (MRU) -- > (LRU): ";
+    while(current){
+        std::cout<<"[" <<current->key <<":" << current->value << "]";
+        current= current->next;
+    }
+    std::cout<<std::endl;
+}
