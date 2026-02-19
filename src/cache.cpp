@@ -8,6 +8,10 @@ struct Node {
     Node* prev;
     Node* next;
 };
+std::string getValue(std::string key);
+void attachToHead(Node* &n);
+void disconnect(Node* n);
+void printData();
 
 std::unordered_map<std::string, Node*> cacheMap;
 Node* head = nullptr;
@@ -19,18 +23,19 @@ int main(){
     std::cout<<"Enter number of users: ";
     std::cin>>number;
     for(int i=0; i<number; i++){
-        Node* temp = new Node{ userName, data};
-        std::cout<<"Enter username- ">>i+1>>"and its data: ";
-        std::cin>>temp->key>>temp->value;
-        temp->prev= nullptr;
-        temp->next = nullptr;
-        if(head != nullptr){
-            head->prev = temp;
-        }
-        head = temp;
+        
+        std::cout<<"Enter username- "<<i+1<<"and its data: ";
+        std::cin>>userName>>data;
+       
+        Node* temp = new Node{  userName, data, nullptr, nullptr};  //creating a new node
+        cacheMap[userName] = temp; //register key and value in the map
+        attachToHead(temp);
     }
     printData();
-    std::cout<<"Getting data: "<< getValue("user1")<<std::endl;
+    std::string dataNeeded;
+    std::cout<<"Enter key for which data is to be found: ";
+    std::cin>>dataNeeded;
+    std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
     printData();
 
     return 0;
