@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unodored_map>
 
 struct Node {
     std::string key;
@@ -50,3 +51,5 @@ void deleteNode(Node * &head){  //deleting a node from start ; &head --> to make
 
     }
 }
+
+std::unodored_map <std::string, Node*> cacheMap;
