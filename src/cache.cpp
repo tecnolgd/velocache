@@ -79,3 +79,17 @@ void printData(){
     }
     std::cout<<std::endl;
 }
+
+void put(std::string key, std::string value){
+    if(cacheMap.find(key) != cacheMap.end()){
+        Node* existing = cacheMap[key];
+        existing->value = value;
+        disconnect(existing);
+        attachToHead(existing);
+        return;
+    }
+
+    Node* newNode = new Node{ key, value, nullptr, nullptr};
+
+    if()
+}
