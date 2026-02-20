@@ -13,7 +13,12 @@ struct Node {
     Node* prev;
     Node* next;
 };
+
+Node* head = nullptr;
+Node* tail = nullptr;
+
 std::string getValue(std::string key);
+std::string putValue(std::string key, std::string value);
 void attachToHead(Node* &n);
 void disconnect(Node* n);
 void printData();
