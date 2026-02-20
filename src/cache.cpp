@@ -2,8 +2,7 @@
 # include "../include/velocache/cache.hpp"
 
 std::unordered_map<std::string, Node*> cacheMap;
-Node* head = nullptr;
-Node* tail = nullptr;
+
 
 int main(){
     int number;
@@ -14,10 +13,7 @@ int main(){
         
         std::cout<<"Enter username- "<<i+1<<"and its data: ";
         std::cin>>userName>>data;
-       
-        Node* temp = new Node{  userName, data, nullptr, nullptr};  //creating a new node
-        cacheMap[userName] = temp; //register key and value in the map
-        attachToHead(temp);
+        putValue(userName, data);
     }
     printData();
     std::string dataNeeded;
@@ -70,17 +66,8 @@ std::string getValue(std::string key){
     return target->value;
 }
 
-void printData(){
-    Node* current = head;
-    std::cout<<"List (MRU) -- > (LRU): ";
-    while(current){
-        std::cout<<"[" <<current->key <<":" << current->value << "]";
-        current= current->next;
-    }
-    std::cout<<std::endl;
-}
 
-void put(std::string key, std::string value){
+void putValue(std::string key, std::string value){
     if(cacheMap.find(key) != cacheMap.end()){
         Node* existing = cacheMap[key];
         existing->value = value;
@@ -91,5 +78,17 @@ void put(std::string key, std::string value){
 
     Node* newNode = new Node{ key, value, nullptr, nullptr};
 
-    if()
+    cacheMap[key] = newNode;
+    attachToHead(newNode);
+}
+
+//to print data present in the DLL
+void printData(){
+    Node* current = head;
+    std::cout<<"List (MRU) -- > (LRU): ";
+    while(current){
+        std::cout<<"[" <<current->key <<":" << current->value << "]";
+        current= current->next;
+    }
+    std::cout<<std::endl;
 }
