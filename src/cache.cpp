@@ -2,7 +2,7 @@
 # include "../include/velocache/cache.hpp"
 
 std::unordered_map<std::string, Node*> cacheMap;
-
+const int MAX = 3;
 
 int main(){
     int number;
@@ -68,18 +68,25 @@ std::string getValue(std::string key){
 
 
 void putValue(std::string key, std::string value){
-    if(cacheMap.find(key) != cacheMap.end()){
+    if(cacheMap.find(key) != cacheMap.end()){ //if node with the same key exists(even if same value mapped to that key --> idempotent write)
         Node* existing = cacheMap[key];
         existing->value = value;
-        disconnect(existing);
-        attachToHead(existing);
+        disconnect(existing); //remove that node since it is the recently accessed one
+        attachToHead(existing);//attach to the head
         return;
     }
 
-    Node* newNode = new Node{ key, value, nullptr, nullptr};
+    Node* newNode = new Node{ key, value, nullptr, nullptr}; //for new node creation
 
-    cacheMap[key] = newNode;
-    attachToHead(newNode);
+    if(cacheMap.size() >= MAX){ //delete from end of the DLL
+        Node* victim = tail; //points to the last node in the DLL 
+        std::cout<<" ALERT: Capacity reached. Evicting: "<<victim->key<<std::endl;
+        cacheMap.erase(victim->key); //clear data for the victim key from the hashmap
+        disconnect(victim); //remove the node from the DLL
+        delete victim; //delete the node
+    }
+    cacheMap[key] = newNode;  
+    attachToHead(newNode); //add node at front
 }
 
 //to print data present in the DLL
