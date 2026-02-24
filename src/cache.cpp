@@ -2,7 +2,7 @@
 # include "../include/velocache/cache.hpp"
 
 std::unordered_map<std::string, Node*> cacheMap;
-const int MAX = 3;
+const int MAX = 3; //max nodes in the list at a time
 
 int main(){
     int number;
@@ -16,6 +16,7 @@ int main(){
         putValue(userName, data);
     }
     printData();
+
     std::string dataNeeded;
     std::cout<<"Enter key for which data is to be found: ";
     std::cin>>dataNeeded;
@@ -63,7 +64,7 @@ std::string getValue(std::string key){
 
     disconnect(target);
     attachToHead(target);
-    return target->value;
+    return target->value; //returns the data which is mapped to the 'target' key
 }
 
 
