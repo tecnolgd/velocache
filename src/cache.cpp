@@ -2,7 +2,7 @@
 # include "../include/velocache/cache.hpp"
 
 std::unordered_map<std::string, Node*> cacheMap;
-const int MAX = 3; //max nodes in the list at a time
+const int MAX = 3; //max nodes capable of being present at a time
 
 int main(){
     int number;
@@ -53,10 +53,9 @@ void attachToHead(Node * &n){  //to move the detached or 'plucked' node to the f
     if(tail == nullptr){
         tail = n;
     }
-  
 }
 
-std::string getValue(std::string key){
+std::string getValue(std::string key){ //to fetch the value form the hashmap i.e. 'cacheMap'
     if(cacheMap.find(key) == cacheMap.end()){
         return "Value NOT found!\n";
     }
@@ -72,6 +71,7 @@ void putValue(std::string key, std::string value){
     if(cacheMap.find(key) != cacheMap.end()){ //if node with the same key exists(even if same value mapped to that key --> idempotent write)
         Node* existing = cacheMap[key];
         existing->value = value;
+        
         disconnect(existing); //remove that node since it is the recently accessed one
         attachToHead(existing);//attach to the head
         return;
