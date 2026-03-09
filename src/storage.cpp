@@ -2,17 +2,17 @@
 #include <iostream>
 #include <fstream>
 #include "../include/velocache/cache.hpp"
-#include "../include/velocache/common.cpp"
+#include "../include/velocache/common.hpp"
 
 
-//to print data present in the DLL
+//to save data present in the DLL
 
-void store_cache_data(){
+void store_cache_data(Node* current){
     std::fstream cacheFile; //declare a file
     cacheFile.open("assets/cache_data.txt", std::ios::out); //write mode
 
     if(cacheFile.is_open()){
-        Node* current = head;
+        current = head;
     cacheFile <<"List (MRU) -- > (LRU): \n";
     while(current){
         cacheFile <<"[" <<current->key <<":" << current->value << "]";
@@ -26,6 +26,7 @@ void store_cache_data(){
     cacheFile.close();
 }
 
+//to print DLL data from the file
 void printData(){
     std::fstream cacheFile;
     cacheFile.open("assets/cache_data.txt", std::ios::in);
