@@ -1,5 +1,6 @@
 //cache.cpp --> main engine of LRU eviction based cache
-# include "../include/velocache/cache.hpp"
+#include "../include/velocache/cache.hpp"
+#include "../include/velocache/common.hpp"
 
 std::unordered_map<std::string, Node*> cacheMap;
 const int MAX = 3; //max nodes capable of being present at a time
@@ -15,14 +16,16 @@ int main(){
         std::cin>>userName>>data;
         putValue(userName, data);
     }
+    store_cache_data(head);
     printData();
 
     std::string dataNeeded;
     std::cout<<"Enter key for which data is to be found: ";
     std::cin>>dataNeeded;
     std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
+    store_cache_data(head);
     printData();
-
+    
     return 0;
 }
 
@@ -88,15 +91,4 @@ void putValue(std::string key, std::string value){
     }
     cacheMap[key] = newNode;  
     attachToHead(newNode); //add node at front
-}
-
-//to print data present in the DLL
-void printData(){
-    Node* current = head;
-    std::cout<<"List (MRU) -- > (LRU): ";
-    while(current){
-        std::cout<<"[" <<current->key <<":" << current->value << "]";
-        current= current->next;
-    }
-    std::cout<<std::endl;
 }
