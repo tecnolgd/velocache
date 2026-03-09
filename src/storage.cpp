@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include "../include/velocache/cache.hpp"
+#include "../include/velocache/common.cpp"
 
 
 //to print data present in the DLL
