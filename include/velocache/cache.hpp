@@ -1,11 +1,15 @@
 //header file for src/cache.cpp
 
+//g++ src/cache.cpp  src/storage.cpp -o build/main.out -I./include (command to build the executable)
+//./build/main.out
+
 #ifndef CACHE
 #define CACHE
 
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <fstream>
 
 struct Node {
     std::string key;
@@ -14,13 +18,12 @@ struct Node {
     Node* next;
 };
 
-Node* head = nullptr;
-Node* tail = nullptr;
+inline Node* head = nullptr; //inline --> to make sure all instances of 'head' and 'tail' are treated as one
+inline Node* tail = nullptr;
 
 std::string getValue(std::string key);
 void putValue(std::string key, std::string value);
 void attachToHead(Node* &n);
 void disconnect(Node* n);
-void printData();
 
 #endif
