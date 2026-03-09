@@ -3,7 +3,7 @@
 
 int main(){
     std::fstream cacheFile; //declare a file
-    cacheFile.open("cache_data.txt", std::ios::out); //write mode
+    cacheFile.open("assets/cache_data.txt", std::ios::out); //write mode
 
     if(cacheFile.is_open()){
         cacheFile << "cache data";
