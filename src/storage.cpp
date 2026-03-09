@@ -1,12 +1,16 @@
+
 #include <iostream>
 #include <fstream>
 
-int main(){
+void store_cache_data(){
     std::fstream cacheFile; //declare a file
     cacheFile.open("assets/cache_data.txt", std::ios::out); //write mode
 
     if(cacheFile.is_open()){
-        cacheFile << "cache data";
+        std::string line;
+        while(getline(cacheFile, line)){
+            cacheFile << line;
+        }
     }
     else{
         std::cout<<"File unable to open";
