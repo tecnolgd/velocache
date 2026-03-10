@@ -20,7 +20,7 @@ int main(){
     printData();
 
     std::string dataNeeded;
-    std::cout<<"Enter key for which data is to be found: ";
+    std::cout<<"\nEnter key for which data is to be found: ";
     std::cin>>dataNeeded;
     std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
     store_cache_data(head);
