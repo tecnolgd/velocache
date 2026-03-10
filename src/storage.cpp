@@ -33,12 +33,10 @@ void printData(){
     if(cacheFile.is_open()){
         std::string line;
         while(getline(cacheFile, line)){
-            std::cout << line;
+            std::cout << line <<std::endl;;
         }
-        std::cout<<std::endl;
     }
     else{
         std::cout<<"Oops! Data cant't be displayed at the moment.\n";
     }
-
 }
