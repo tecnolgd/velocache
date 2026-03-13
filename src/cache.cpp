@@ -8,6 +8,9 @@ const int MAX = 3; //max nodes capable of being present at a time
 int main(){
     int number;
     std::string userName, data;
+
+    load_from_file(); //load stored cache data from the file (hydration)
+
     std::cout<<"Enter number of users: ";
     std::cin>>number;
     for(int i=0; i<number; i++){
