@@ -13,11 +13,12 @@ void store_cache_data(Node* current){
     cacheFile.open("assets/cache_data.txt", std::ios::out); //write mode
 
     if(cacheFile.is_open()){
-        current = head;
-    cacheFile <<"List (MRU) -- > (LRU): \n";
+        current = tail;
+
     while(current){
-        cacheFile <<"[" <<current->key <<":" << current->value << "]";
-        current= current->next;
+        cacheFile <<current->key <<"  "<< current->value <<std::endl;
+        current= current->prev;
+        
     }
     std::cout<<std::endl;
     }
@@ -33,15 +34,16 @@ void printData(){
     cacheFile.open("assets/cache_data.txt", std::ios::in);
     if(cacheFile.is_open()){
         std::string line;
+        std::cout << " Key  |  Value"<<std::endl;
         while(getline(cacheFile, line)){
-            std::cout << line <<std::endl;;
+            
+            std::cout << "* " << line <<std::endl;
         }
     }
     else{
         std::cout<<"Oops! Data cant't be displayed at the moment.\n";
     }
 }
-
 
 void load_from_file(){
     std::ifstream load_file("assets/cache_data.txt");
@@ -50,9 +52,11 @@ void load_from_file(){
     }
 
     std::string key, data;
-    while(load_file >> key >> data){
-        putValue(key, data);
+
+    while (load_file >> key >> data) {
+        putValue(key, data); 
     }
+
     load_file.close();
     std::cout<<"LOG: Cache loaded from the file" <<std::endl;
 }
