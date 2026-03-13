@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "../include/velocache/cache.hpp"
 #include "../include/velocache/common.hpp"
 
@@ -39,4 +40,19 @@ void printData(){
     else{
         std::cout<<"Oops! Data cant't be displayed at the moment.\n";
     }
+}
+
+
+void load_from_file(){
+    std::ifstream load_file("assets/cache_data.txt");
+    if(! load_file){
+        return;
+    }
+
+    std::string key, data;
+    while(load_file >> key >> data){
+        putValue(key, data);
+    }
+    load_file.close();
+    std::cout<<"LOG: Cache loaded from the file" <<std::endl;
 }
