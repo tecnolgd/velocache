@@ -16,7 +16,7 @@ void store_cache_data(Node* current){
         current = tail;
 
     while(current){
-        cacheFile <<current->key <<"  "<< current->value <<std::endl;
+        cacheFile <<current->key <<"     "<< current->value <<std::endl;
         current= current->prev;
         
     }
@@ -34,11 +34,15 @@ void printData(){
     cacheFile.open("assets/cache_data.txt", std::ios::in);
     if(cacheFile.is_open()){
         std::string line;
+        int counter = 1;
         std::cout << " Key  |  Value"<<std::endl;
-        while(getline(cacheFile, line)){
+        while(getline(cacheFile, line) && counter <= 2){
             
             std::cout << "* " << line <<std::endl;
+            counter++;
         }
+        
+        std::cout<<"* " << line <<" [ Recent ]\n";
     }
     else{
         std::cout<<"Oops! Data cant't be displayed at the moment.\n";
