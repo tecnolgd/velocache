@@ -1,4 +1,6 @@
 
+//command to run benchmark: g++ -O3 src/cache.cpp tests/benchmark.cpp -o v_bench
+
 #include <iostream>
 #include <chrono>
 #include "../include/velocache/cache.hpp" 
@@ -15,4 +17,10 @@ void runBenchmark(int operations) {
 
     std::cout << "Finished " << operations << " put operations in: " << diff.count() << "s" << std::endl;
     std::cout << "Average speed: " << (operations / diff.count()) << " ops/sec" << std::endl;
+}
+
+int main(){
+    runBenchmark(10000); //benchmarking cache performance
+
+    return 0;
 }
