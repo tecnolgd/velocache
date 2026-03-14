@@ -18,6 +18,9 @@ struct Node {
     Node* next;
 };
 
+inline std::unordered_map<std::string, Node*> cacheMap;
+const int MAX = 3; //max nodes capable of being present at a time
+
 inline Node* head = nullptr; //inline --> to make sure all instances of 'head' and 'tail' are treated as one
 inline Node* tail = nullptr;
 
