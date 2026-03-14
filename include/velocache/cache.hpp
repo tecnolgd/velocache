@@ -1,6 +1,6 @@
 //header file for src/cache.cpp
 
-//g++ src/cache.cpp  src/storage.cpp -o build/main.out -I./include (command to build the executable)
+//g++ src/cache.cpp  src/storage.cpp apps/server.cpp -o build/v_server -I./include (command to build the executable)
 //./build/main.out
 
 #ifndef CACHE
