@@ -1,36 +1,6 @@
 //cache.cpp --> main engine of LRU eviction based cache
+
 #include "../include/velocache/cache.hpp"
-#include "../include/velocache/common.hpp"
-
-std::unordered_map<std::string, Node*> cacheMap;
-const int MAX = 3; //max nodes capable of being present at a time
-
-int main(){
-    int number;
-    std::string userName, data;
-
-    load_from_file(); //load stored cache data from the file (hydration)
-
-    std::cout<<"Enter number of users: ";
-    std::cin>>number;
-    for(int i=0; i<number; i++){
-        
-        std::cout<<"Enter username- "<<i+1<<"and its data: ";
-        std::cin>>userName>>data;
-        putValue(userName, data);
-    }
-    store_cache_data(head);
-    printData();
-
-    std::string dataNeeded;
-    std::cout<<"\nEnter key for which data is to be found: ";
-    std::cin>>dataNeeded;
-    std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
-    store_cache_data(head);
-    printData();
-    
-    return 0;
-}
 
 void disconnect(Node *n){  //to remove a node and set other nodes as nothing happened (making sure the chain doesn't break)
     
