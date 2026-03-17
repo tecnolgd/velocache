@@ -1,0 +1,13 @@
+CC = g++
+CFLAGS = -I./include -O3 # -O3 tells the compiler to optimize for MAX SPEED
+
+all: v_cache v_bench
+
+v_cache: src/cache.cpp src/storage.cpp apps/server.cpp
+	$(CC) $(CFLAGS) src/cache.cpp src/storage.cpp apps/server.cpp -o build/v_cache
+
+v_bench: src/cache.cpp tests/benchmark.cpp
+	$(CC) $(CFLAGS) src/cache.cpp tests/benchmark.cpp -o build/v_bench
+
+clean:
+	rm -f v_cache v_bench
