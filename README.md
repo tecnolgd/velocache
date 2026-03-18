@@ -11,7 +11,7 @@
 
 ## Performance data
 Results achieved from internal benchmarking [for 10k operations]      
-- **Throughput:** ~
+- **Throughput:** ~24006 ops/sec
 - **Time Complexity:** $O(1)$
 
 ## Installation & Build
