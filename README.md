@@ -36,7 +36,7 @@ make clean
 1. The Server     
 - Build:      
 ```bash
-g++ src/cache.cpp  src/storage.cpp apps/server.cpp -I./include -o build/v_server  
+g++ src/cache.cpp  src/storage.cpp apps/server.cpp -I./include -03 -o build/v_server  
 ```      
 - Run:      
 ```bash   
@@ -46,7 +46,7 @@ g++ src/cache.cpp  src/storage.cpp apps/server.cpp -I./include -o build/v_server
 2. The Benchmark Tool     
 - Build:       
 ```bash
-g++ src/cache.cpp tests/benchmark.cpp -I./include -o build/v_bench
+g++ src/cache.cpp tests/benchmark.cpp -I./include -03 -o build/v_bench
 ```     
 - Run:     
 ```bash
