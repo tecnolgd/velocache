@@ -1,8 +1,6 @@
-
+//server.cpp --> the cache application
 #include "../include/velocache/cache.hpp"
 #include "../include/velocache/common.hpp"
-
-
 
 int main(){
     int number;
@@ -28,6 +26,5 @@ int main(){
     store_cache_data(head);
     printData();
     
-    //runBenchmark(10000);
     return 0;
 }
