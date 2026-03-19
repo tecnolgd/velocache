@@ -5,9 +5,7 @@
 #include "../include/velocache/cache.hpp"
 #include "../include/velocache/common.hpp"
 
-
 //to save data present in the DLL
-
 void store_cache_data(Node* current){
     std::fstream cacheFile; //declare a file
     cacheFile.open("assets/cache_data.txt", std::ios::out); //write mode
@@ -49,6 +47,7 @@ void printData(){
     }
 }
 
+//load cache data from the last session
 void load_from_file(){
     std::ifstream load_file("assets/cache_data.txt");
     if(! load_file){
