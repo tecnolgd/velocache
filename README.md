@@ -14,6 +14,11 @@ Results achieved from internal benchmarking [for 10k operations]
 - **Throughput:** ~24006 ops/sec
 - **Time Complexity:** $O(1)$
 
+## Documentation
+- [Architecture](assets/docs/architecture.md)
+- [Roadmap](assets/docs/roadmap.md)
+- [Tool usage](assets/docs/usage.md)
+
 ## Installation & Build
 Ensure you have `g++` installed( `make` recommended). From the project directory, run the following commands:    
 
