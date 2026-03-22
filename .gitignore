@@ -1,5 +1,5 @@
 # .gitignore file
 
 *build
-*assets
+*assets/*.txt
 *.vscode/
