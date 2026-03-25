@@ -1,6 +1,9 @@
 
-# VeloCache (Beta)
+# VeloCache
 > A high-performance, $O(1)$ LRU Cache Engine built in C++ with persistent storage capabilities.
+
+---
+![velocache_demo](assets/v_demo.gif)
 
 ## Key Features:
 
