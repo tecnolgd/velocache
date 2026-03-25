@@ -28,5 +28,9 @@
 - If the key doesn't exists, then a message describing the absence of the key would be displayed on the console.
 <!--enter output of the console here for the key not found error-->
 
+## The Benchmark tool
+1. Follow the build instructions for the benchmark tool and run the build file.
+2. The program would run until 10k iterations and display the **Average time and operations/second**.      
+> Note: This benchmark is currently for the putValue() module; benchmarking for other modules would be added in the future versions.
 ## Demo GIF
 [Demo](../v_demo.gif)
