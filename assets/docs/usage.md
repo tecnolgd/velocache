@@ -29,4 +29,4 @@
 <!--enter output of the console here for the key not found error-->
 
 ## Demo GIF
-[Demo](../../README.md#demo-gif)
+[Demo](../v_demo.gif)
