@@ -5,6 +5,8 @@
 >(Tip: Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time)
 
 ### The Application flow
+> (Note: A do-while loop is used for multiple sessions with user control to end the session)
+
 1. At the start of the excecution of the application, the **server** (src/server.cpp) will be already loaded with data from the previous session(if any).
 
 - This data is loaded from a file called **cache_data.txt** located in the **assets/** folder.    
@@ -18,7 +20,7 @@
 - The **keys cannot be repeated** i.e while entering the key, make sure that the **same key does not exists in the cache** while on the other hand, value could be repeated.
 - While pressing 'Enter', the current cache would be displayed on the console with the recently used element (either **recently** added or retrieved since retrieval changes the location of the key-value pair) labelled for user interpretation.
 - If the cache is already full (i.e if current capacity of the cache = Max. capacity of the cache), then **eviction of the oldest** data takes place. (via [LRU eviction policy]())
-- A log message regarding the data that is to be eviceted would be displayed on the console and updated cache would be displayed instantly.
+- A log message regarding the data that is to be evicted would be displayed on the console and updated cache would be displayed instantly.
 <!--enter console output which shows the alert before evicting-->
 
 4. The retrieval of value using the key can be achieved from **entering the key** on the console for the respective prompt.
@@ -27,4 +29,4 @@
 <!--enter output of the console here for the key not found error-->
 
 ## Demo GIF
-[Demo]()
+[Demo](../../README.md#demo-gif)
