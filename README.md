@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/interface-CLI-white)
 [![Status: Beta](https://img.shields.io/badge/Status-Beta-orange)](https://github.com/tecnolgd/repoScanner)
 
-> A high-performance, $O(1)$ LRU Cache Engine built in C++ with persistent storage capabilities.
+> A high-performance, $O(1)$ LRU Cache Server built in C++ with persistent storage capabilities.
 
 ---
 ![velocache_demo](assets/v_demo.gif)
@@ -66,6 +66,7 @@ g++ src/cache.cpp tests/benchmark.cpp -I./include -03 -o build/v_bench
 ```bash
 ./build/v_bench
 ```
+## [Contributing](CONTRIBUTING.md)
 
 ## Author & Version
 
