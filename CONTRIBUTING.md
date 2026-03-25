@@ -2,10 +2,10 @@
 ## Contributing to VeloCache
 Thank you for your interest in contributing to VeloCache! We aim to build a high-performance cache-like tool.
 
- Whether you’re fixing a bug, adding a new system metric, or optimizing data structures used , your help is welcome.
+ Whether you’re fixing a bug, adding a new feature, or optimizing data structures used , your help is welcome.
 
 ### Development Setup
-To set up your local development environment and build the project, please follow the Installation Instructions in the [README.md](README.md#installation--build).
+To set up your local development environment and build the project, please follow the installation instructions in the [README.md](README.md#installation--build).
 
 *Additional Dev Note: Ensure you have `g++` or `make` installed, as our build process relies on standard GNU tools*.
 
@@ -15,7 +15,7 @@ To set up your local development environment and build the project, please follo
 
 - **Performance:** VeloCache’s core goal is low overhead. Any new feature should have a minimal footprint on system resources.
 
-- **Testing:** If you add a new metric (e.g., Disk I/O or CPU stats), please ensure it is modular and doesn't break the main loop.
+- **Testing:** If you add a new metric or tests(e.g., Disk I/O, CPU stats, or benchmarks), please ensure it is modular and doesn't break the **apps/server.cpp**.
 
 ### How to Contribute
 1. **Fork** the repository.
