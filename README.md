@@ -1,10 +1,10 @@
 
-<h1 style="font-size: 50px; font-family: roboto;" align= "center">VeloCache</h1>
+<h1 style="font-size: 50px; font-family: roboto;" align= "center">velocache</h1>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![g++ 13.3.0](https://img.shields.io/badge/g++-13.3.0%2B-blue)
 ![Static Badge](https://img.shields.io/badge/interface-CLI-white)
-[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange)](https://github.com/tecnolgd/repoScanner)
+[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange)](https://github.com/tecnolgd/velocache)
 
 > A high-performance, $O(1)$ LRU Cache Server built in C++ with persistent storage capabilities.
 
@@ -19,7 +19,7 @@
 - **Minimal Footprint:** Zero external dependencies; optimized for embedded or sidecar use cases.
 
 ## Performance data
-Results achieved from internal benchmarking [for 10k operations]      
+Results achieved from internal benchmarking [for 10k operations involving *putValue()* module]      
 - **Throughput:** ~24006 ops/sec
 - **Time Complexity:** $O(1)$
 
@@ -29,7 +29,18 @@ Results achieved from internal benchmarking [for 10k operations]
 - [Tool usage](assets/docs/usage.md)
 
 ## Installation & Build
-Ensure you have `g++` installed( `make` recommended). From the project directory, run the following commands:    
+
+>Ensure you have `g++` installed( `make` recommended). 
+```bash
+#clone the repo
+git clone https://github.com/tecnolgd/velocache/
+```
+```bash
+#navigate to the project directory
+cd velocache
+```
+
+From the project directory, run the following commands:    
 
  ### Using make (recommended)         
 - Build and run **the server**:     
