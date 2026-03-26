@@ -1,7 +1,7 @@
 
-## VeloCache Usage Info
+## velocache Usage Info
 
-> To start using VeloCache, complete the [installation and build procedures](../../README.md#installation--build/).
+> To start using velocache, complete the [installation and build procedures](../../README.md#installation--build/).
 >(Tip: Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time)
 
 ### The Application flow
@@ -13,9 +13,9 @@
 - For in-depth details on how this cache server is implemented, check [LRU eviction](https://www.geeksforgeeks.org/dsa/lru-cache-implementation-using-double-linked-lists/).<!--[architecture]() :insert link to hash-map and dll based storage & retrieval of data info in future versions-->
 
 2. The application would ask for number of nodes to be stored in the cache.
-- As defined in the **include/velocache/cache.hpp**, the maximum number of data elements is restricted to **3**. This could be modified by as per the need and interests of the user.    
+- As defined in the **include/cache.hpp**, the maximum number of data elements is restricted to **3**. This could be modified by as per the need and interests of the user.    
 ```txt
-VeloCache >>>>
+velocache >>>>
 
 Operations supported
 1. Data storage
