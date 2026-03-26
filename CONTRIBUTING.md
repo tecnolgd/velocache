@@ -1,6 +1,6 @@
 
-## Contributing to VeloCache
-Thank you for your interest in contributing to VeloCache! We aim to build a high-performance cache-like tool.
+## Contributing to velocache
+Thank you for your interest in contributing to velocache! We aim to build a high-performance cache-like tool.
 
  Whether you’re fixing a bug, adding a new feature, or optimizing data structures used , your help is welcome.
 
@@ -13,7 +13,7 @@ To set up your local development environment and build the project, please follo
 ### Development Workflow
 - **Code Style:** Keep it clean and readable. Use standard C++17/20 practices.
 
-- **Performance:** VeloCache’s core goal is low overhead. Any new feature should have a minimal footprint on system resources.
+- **Performance:** velocache’s core goal is low overhead. Any new feature should have a minimal footprint on system resources.
 
 - **Testing:** If you add a new metric or tests(e.g., Disk I/O, CPU stats, or benchmarks), please ensure it is modular and doesn't break the **apps/server.cpp**.
 
@@ -31,7 +31,7 @@ To set up your local development environment and build the project, please follo
 Looking for a place to start?
 Check the [ROADMAP](assets/docs/roadmap.md) for planned ideas
     
-or consider **user-defined** ideas to make VeloCache better. Some easy wins: 
+or consider **user-defined** ideas to make velocache better. Some easy wins: 
 - Code refractoring
 - Terminal UI improvement
 - Documentation(like architecture or usage docs)
