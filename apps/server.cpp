@@ -8,7 +8,7 @@ int main(){
     std::string userName, data;
     std::string dataNeeded;
 
-    std::cout<<"VeloCache >>>>\n";
+    std::cout<<"velocache >>>>\n";
 
     do{
         std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Exit\n";
