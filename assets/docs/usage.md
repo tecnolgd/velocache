@@ -14,7 +14,7 @@
 
 2. The application would ask for number of nodes to be stored in the cache.
 - As defined in the **include/velocache/cache.hpp**, the maximum number of data elements is restricted to **3**. This could be modified by as per the need and interests of the user.    
-```out
+```txt
 VeloCache >>>>
 
 Operations supported
@@ -30,7 +30,7 @@ Enter your choice:
 - While pressing 'Enter', the current cache would be displayed on the console with the recently used element (either **recently** added or retrieved since retrieval changes the location of the key-value pair) labelled for user interpretation.
 - If the cache is already full (i.e if current capacity of the cache = Max. capacity of the cache), then **eviction of the oldest** data takes place. (via [LRU eviction policy]())
 - A log message regarding the data that is to be evicted would be displayed on the console and updated cache would be displayed instantly.
-```out
+```txt
 Enter your choice: 1 
 LOG: Cache loaded from the file
 Enter number of users: 1
@@ -40,7 +40,7 @@ Enter username- 1and its data: user88 340
 
 4. The retrieval of value using the key can be achieved from **entering the key** on the console for the respective prompt.
 - If the key exists, then the corresponding value is displayed on the console with the cache order also getting updated since the retrieval made the data the recently accessed data from the cache.
-```out
+```txt
 Enter your choice: 2
 
 Enter username(key) for which data is to be found: user88
@@ -48,7 +48,7 @@ Getting data: 340
 ```
 
 - If the key doesn't exists, then a message describing the absence of the key would be displayed on the console.
-```out
+```txt
 Enter your choice: 2
 
 Enter username(key) for which data is to be found: user99
