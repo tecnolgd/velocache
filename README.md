@@ -1,10 +1,12 @@
 
-<h1 style="font-size: 50px; font-family: roboto;" align= "center">velocache</h1>
+<h1 style="font-size: 60px; font-family: roboto;" align= "center">velocache</h1>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![g++ 13.3.0](https://img.shields.io/badge/g++-13.3.0%2B-blue)
-![Static Badge](https://img.shields.io/badge/interface-CLI-white)
-[![Status: Beta](https://img.shields.io/badge/Status-Beta-orange)](https://github.com/tecnolgd/velocache)
+<div align = "center">
+<a href = "https://opensource.org/licenses/MIT"><img src = "https://img.shields.io/badge/License-MIT-green.svg" alt = "MIT License"></a>
+<img src = "https://img.shields.io/badge/g++-13.3.0%2B-blue" alt = "g++ 13.3.0+">
+<img src = "https://img.shields.io/badge/interface-CLI-white" alt = "Interface: CLI">
+<a href = "https://github.com/tecnolgd/velocache"><img src = "https://img.shields.io/badge/Status-Beta-orange" alt = "Status: Beta"></a>
+</div>
 
 > A high-performance, $O(1)$ LRU Cache Server built in C++ with persistent storage capabilities.
 
