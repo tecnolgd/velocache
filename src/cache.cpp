@@ -1,6 +1,6 @@
 //cache.cpp --> main engine of LRU eviction based cache
 
-#include "../include/velocache/cache.hpp"
+#include "../include/cache.hpp"
 
 void disconnect(Node *n){  //to remove a node and set other nodes as nothing happened (making sure the chain doesn't break)
     

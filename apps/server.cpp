@@ -1,6 +1,6 @@
 //server.cpp --> the cache application
-#include "../include/velocache/cache.hpp"
-#include "../include/velocache/common.hpp"
+#include "../include/cache.hpp"
+#include "../include/common.hpp"
 #include <cctype>
 
 int main(){

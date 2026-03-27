@@ -2,8 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "../include/velocache/cache.hpp"
-#include "../include/velocache/common.hpp"
+#include "../include/cache.hpp"
+#include "../include/common.hpp"
 
 //to save data present in the DLL
 void store_cache_data(Node* current){
