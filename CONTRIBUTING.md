@@ -29,7 +29,7 @@ To set up your local development environment and build the project, please follo
 ### Current Priorities
 
 Looking for a place to start?
-Check the [ROADMAP](assets/docs/roadmap.md) for planned ideas
+Check the [ROADMAP](assets/docs/roadmap.md) for planned ideas or [ISSUES](https://github.com/tecnolgd/velocache/issues) to start actively contributing to velocache.
     
 or consider **user-defined** ideas to make velocache better. Some easy wins: 
 - Code refractoring
