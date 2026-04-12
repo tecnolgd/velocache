@@ -1,8 +1,8 @@
 
 ## Contributing to velocache
-Thank you for your interest in contributing to velocache! We aim to build a high-performance cache-like tool.
+- Thank you for your interest in contributing to velocache! We aim to build a high-performance cache-like tool.
 
- Whether you’re fixing a bug, adding a new feature, or optimizing data structures used , your help is welcome.
+- Whether you’re fixing a bug, adding a new feature, or optimizing data structures used , your help is welcome.
 
 ### Development Setup
 To set up your local development environment and build the project, please follow the installation instructions in the [README.md](README.md#installation--build).
@@ -31,8 +31,8 @@ To set up your local development environment and build the project, please follo
 Looking for a place to start?
 Check the [ROADMAP](assets/docs/roadmap.md) for planned ideas or [ISSUES](https://github.com/tecnolgd/velocache/issues) to start actively contributing to velocache.
     
-or consider **user-defined** ideas to make velocache better. Some easy wins: 
+or consider **your own** ideas to make velocache better. Some easy wins: 
 - Code refractoring
 - Terminal UI improvement
-- Documentation(like architecture or usage docs)
+- Documentation(like Architecture or Usage docs)
 - Submitting issues or engaging in discussions
