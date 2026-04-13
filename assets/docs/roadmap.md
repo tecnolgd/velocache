@@ -5,7 +5,7 @@
   - C++ core with modular architecture   
   - Currently implemented for linux systems
   - Makefile added for modular build and run.
-  - Benchmark program included for Perf. statistics nerds
+  - Benchmark program included for Perf. nerds
 
 - 🔄 **In Progress:** 
   - Implemetation of new functionalities
@@ -15,6 +15,6 @@
   - Cross-platform support (Linux, macOS)
   - Converting the application into a Plugin tool
   - Adding system stats (CPU, network, etc.)
-  - Architecture breakdown document
   - Unit tests
   - Performance optimizations
+  - Remote access
