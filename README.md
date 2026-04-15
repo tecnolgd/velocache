@@ -5,7 +5,8 @@
 <a href = "https://opensource.org/licenses/MIT"><img src = "https://img.shields.io/badge/License-MIT-green.svg" alt = "MIT License"></a>
 <img src = "https://img.shields.io/badge/g++-13.3.0%2B-blue" alt = "g++ 13.3.0+">
 <img src = "https://img.shields.io/badge/interface-CLI-white" alt = "Interface: CLI">
-<a href = "https://github.com/tecnolgd/velocache"><img src = "https://img.shields.io/badge/Release-v0.1.0_(beta)-orange" alt = "Release: v0.1.0-beta"></a>
+<a href = "https://github.com/tecnolgd/velocache/releases"><img src = "https://img.shields.io/badge/Release-v0.1.0_(beta)-orange" alt = "Release: v0.1.0-beta"></a>
+<a href = "#documentation"><img src = "https://img.shields.io/badge/docs-available-blue" alt = "Docs"></a>
 </div>
 
 > A high-performance, $O(1)$ LRU Cache Server built in C++ with persistent storage capabilities.
