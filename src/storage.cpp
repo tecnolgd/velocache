@@ -1,4 +1,4 @@
-
+//cache data storage and loading mechanisms via file handling
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -16,7 +16,6 @@ void store_cache_data(Node* current){
     while(current){
         cacheFile <<current->key <<"     "<< current->value <<std::endl;
         current= current->prev;
-        
     }
     std::cout<<std::endl;
     }
