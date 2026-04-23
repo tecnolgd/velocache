@@ -1,6 +1,8 @@
 //server.cpp --> the cache application
+
 #include "../include/cache.hpp"
 #include "../include/common.hpp"
+#include "../include/utils.hpp"
 #include <cctype>
 
 int main(){
@@ -13,8 +15,7 @@ int main(){
     do{
         std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Exit\n";
 
-        std::cout<<"Enter your choice: ";
-        std::cin>>choice; //error check needed in future versions
+        choice = getValidatedChoice();  //get validated choice from 'utils/input_validation.cpp'
         
         switch(choice){
             case 1:
