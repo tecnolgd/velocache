@@ -1,16 +1,16 @@
 CC = g++
-CFLAGS = -I./include -O3 -Wall# -O3 tells the compiler to optimize for MAX SPEED
-# Wall: adds useful warnings for keeping the code clean
+CFLAGS = -I./include -O3 -Wall # '-O3' tells the compiler to optimize for MAX SPEED
+# 'Wall'adds useful warnings for keeping the code clean
 
-#defining the headers so the Makefile tracks changes
+# defining the headers to make the Makefile track changes
 DEPS = include/cache.hpp include/common.hpp include/utils.hpp
 
 BUILD_DIR = build
 
 all: $(BUILD_DIR) v_server v_bench
-#'all' target ensures the build directory exists before compiling
+# 'all' target ensures '/build` exists before compiling
 
-#create '/build' if it doesn't exists
+# create '/build' if it doesn't exists
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
@@ -24,4 +24,4 @@ clean:
 	rm -rf $(BUILD_DIR)/*
 	@echo "Cleaned $(BUILD_DIR) directory."
 
-.PHONY: all clean # to treat 'all' and 'clean' as commands and not files
+.PHONY: all clean # used to treat 'all' and 'clean' as commands and not files
