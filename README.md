@@ -45,17 +45,27 @@ cd velocache
 
 From the project directory, run the following commands:    
 
- ### Using make (recommended)         
-- Build and run **the server**:     
+ ### Using make (recommended) 
+
+- Build **both** the server and the benchmark tool
 ```bash
-make v_server
+    make
+```
+or
+```bash
+    make all
 ```
 
-- Build and run **the benchmark tool**:
-```bash
-make v_bench
-```
-- Clean .o files:
+- Build and run individualy      
+    - **The Server**:     
+    ```bash
+        make v_server
+    ```       
+    - **The Benchmark Tool**:
+    ```bash
+        make v_bench
+    ```
+- Clean object files:
 ```bash
 make clean
 ```
@@ -64,7 +74,7 @@ make clean
 1. The Server     
 - Build:      
 ```bash
-g++ src/cache.cpp  src/storage.cpp apps/server.cpp -I./include -03 -o build/v_server  
+g++ src/cache.cpp  src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include-03 -Wall -o build/v_server  
 ```      
 - Run:      
 ```bash   
@@ -74,7 +84,7 @@ g++ src/cache.cpp  src/storage.cpp apps/server.cpp -I./include -03 -o build/v_se
 2. The Benchmark Tool     
 - Build:       
 ```bash
-g++ src/cache.cpp tests/benchmark.cpp -I./include -03 -o build/v_bench
+g++ src/cache.cpp tests/benchmark.cpp -I./include-03 -Wall -o build/v_bench
 ```     
 - Run:     
 ```bash
