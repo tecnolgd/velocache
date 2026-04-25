@@ -21,4 +21,7 @@ v_bench: src/cache.cpp tests/benchmark.cpp $(DEPS)
 	$(CC) $(CFLAGS) src/cache.cpp tests/benchmark.cpp -o $(BUILD_DIR)/v_bench
 
 clean:
-	rm -rf v_server v_bench
+	rm -rf $(BUILD_DIR)/*
+	@echo "Cleaned $(BUILD_DIR) directory."
+
+.PHONY: all clean # to treat 'all' and 'clean' as commands and not files
