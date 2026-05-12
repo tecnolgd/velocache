@@ -1,23 +1,57 @@
-//utility function for validating choices entered by the user in the menu
+//utility function for validating choices and key-value input entered by the user
 
 #include "../include/utils.hpp"
+#include "../include/cache.hpp"
 #include <iostream>
 
 int getValidatedChoice() {
-    std::string choice;
-    while (true) {
-        std::cout << "Select an option (1-4): ";
-        std::cin >> choice;
+    std::string input;
+    int choice;
+    
+    std::cout << "Select an option (1-4): ";
+    while (std::getline(std::cin, input)) {
+        try {
+            choice = std::stoi(input);
 
-        // Check if the input is exactly one character and within '1'-'4'
-        if (choice.length() == 1 && choice[0] >= '1' && choice[0] <= '4') {
-            // Convert char to int ('1' becomes 1)
-            return choice[0] - '0';
-        }
-        else{
-            std::cin.clear();
-            std::cin.ignore(1000, '\n');
-            std::cout << "Invalid input! Please enter a single digit from 1 to 4.\n";
-        }
+            if (choice >= 1 && choice <= 4 && input.length() == 1) {
+                return choice;
+            }
+            
+        } catch (...){}
+        std::cout << "Invalid choice. Try again: ";
     }
+    return 1;
+}
+
+std::string getValidatedKeyInput() {
+    std::string key;
+    std::cout << "Enter key: ";
+    std::getline(std::cin, key);
+    return key;
+}
+
+std::string getValidatedValueInput() {
+    std::string value;
+    std::cout << "Enter value: ";
+    std::getline(std::cin, value);
+    return value;
+}
+
+int getValidatedNumberInput(int maxLimit) {
+  
+    std::string input;
+    int choice;
+    
+    while (std::getline(std::cin, input)) {
+        try {
+            choice = std::stoi(input);
+
+            if (choice >= 1 && choice <= maxLimit && input.length() == 1) {
+                return choice;
+            }
+            
+        } catch (...){}
+        std::cout<<"Invalid user count! Try Again: ";
+    }
+    return 0;
 }
