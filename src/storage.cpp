@@ -32,14 +32,21 @@ void printData(){
     if(cacheFile.is_open()){
         std::string line;
         int counter = 1;
+        bool hasMore = false;
         std::cout << " Key  |  Value"<<std::endl;
-        while(getline(cacheFile, line) && counter <= 2){
-            
-            std::cout << "* " << line <<std::endl;
+        while(getline(cacheFile, line)){
+            if(counter <= 2){
+                std::cout << "* " << line <<std::endl;
+            } else {
+                hasMore = true;
+                break;
+            }
             counter++;
         }
         
-        std::cout<<"* " << line <<" [ Recent ]\n";
+        if(hasMore){
+            std::cout<<"* " << line <<" [ Recent ]\n";
+        }
     }
     else{
         std::cout<<"Oops! Data cant't be displayed at the moment.\n";
