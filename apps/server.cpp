@@ -14,31 +14,31 @@ int main(){
 
     do{
         std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Exit\n";
-
+        load_from_file();
         choice = getValidatedChoice();  //get validated choice from 'utils/input_validation.cpp'
         
         switch(choice){
             case 1:
-                load_from_file(); //load stored cache data from the file (hydration)
-
-                std::cout<<"Enter number of users: ";
-                std::cin>>number;
+                
+                std::cout << "Enter number of users: ";
+                number = getValidatedNumberInput(1000);
+                
                 for(int i=0; i<number; i++){
-                    
-                    std::cout<<"Enter username- "<<i+1<<"and its data: ";
-                    std::cin>>userName>>data;
+                    std::cout<<"\n--- User "<<i+1<<" ---\n";
+                    userName = getValidatedKeyInput();
+                    data = getValidatedValueInput();
                     putValue(userName, data);
                 }
                 store_cache_data(head);
-                //printData(); --> optional to map the LRU eviction in action
                 break;
 
             case 2: 
-                std::cout<<"\nEnter username(key) for which data is to be found: ";
-                std::cin>>dataNeeded;
-                std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
-                store_cache_data(head);
-                
+                std::cout<<"\n";
+                dataNeeded = getValidatedKeyInput();
+                if (!dataNeeded.empty()) {
+                    std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
+                    store_cache_data(head);
+                }
                 break;
 
             case 3:
