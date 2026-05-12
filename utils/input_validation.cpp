@@ -3,6 +3,8 @@
 #include "../include/utils.hpp"
 #include "../include/cache.hpp"
 #include <iostream>
+#include <limits>
+#include <ios>
 
 int getValidatedChoice() {
     std::string input;
@@ -25,16 +27,35 @@ int getValidatedChoice() {
 
 std::string getValidatedKeyInput() {
     std::string key;
-    std::cout << "Enter key: ";
-    std::getline(std::cin, key);
-    return key;
+
+    while (true) {
+        std::cout << "Enter key: ";
+        if (!std::getline(std::cin, key) || key.empty()) {
+            std::cout << "Error: Key cannot be empty. Try again.\n";
+            continue;
+        }
+
+        if (key.length() > 256) { // Arbitrary limit for a cache key
+            std::cout << "Error: Key too long (max 256 chars).\n";
+            continue;
+        }
+        return key;
+    }
 }
 
 std::string getValidatedValueInput() {
     std::string value;
-    std::cout << "Enter value: ";
-    std::getline(std::cin, value);
-    return value;
+
+    while (true) {
+        std::cout << "Enter value: ";
+        if (!(std::getline(std::cin, value))) {
+            std::cin.clear(); // Reset stream state
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Error reading input. Please try again.\n";
+            continue;
+        }
+        return value;
+    }
 }
 
 int getValidatedNumberInput(int maxLimit) {
