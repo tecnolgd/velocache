@@ -1,20 +1,24 @@
 <!--Roadmap.md-->
 ## Roadmap & Future Upgrades
 
-- ✅ **Current:** 
+- ✅ **Current Implementation:** 
   - C++ core with modular architecture   
-  - Currently implemented for linux systems
-  - Makefile added for modular build and run.
-  - Benchmark program included for Perf. nerds
+  - O(1) LRU cache using hash map and doubly linked list
+  - Filesystem-based persistent storage (tail-to-head serialization)
+  - LRU cache invalidation strategy with configurable capacity
+  - Linux system support
+  - Makefile build system with modular compilation
+  - Benchmark tool for performance testing (~24k ops/sec)
+  - Unit tests included
 
 - 🔄 **In Progress:** 
-  - Implemetation of new functionalities
-  - Improving robustness of code and edge-case handling 
+  - Robustness improvements and edge-case handling
+  - Performance optimization opportunities
   
 - 📋 **Planned:**
-  - Cross-platform support (Linux, macOS)
-  - Converting the application into a Plugin tool
-  - Adding system stats (CPU, network, etc.)
-  - Unit tests
-  - Performance optimizations
-  - Remote access
+  - Network server capabilities (client-server architecture)
+  - Cross-platform support (macOS, Windows)
+  - Remote access and distributed caching
+  - System monitoring stats (CPU, memory, network)
+  - Plugin architecture support
+  - Additional storage backends evaluation
