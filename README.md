@@ -12,7 +12,7 @@
 
 > A high-performance, $O(1)$ LRU Cache Server built in C++ with persistent storage capabilities.
 ---
-![velocache_demo](assets/v_demo.gif)
+![velocache_demo](assets/v_demo_2.gif)
 
 ## Key Features:
 
