@@ -19,7 +19,7 @@
 - **Constant Time Complexity:** $O(1)$ for both `get` and `put` operations via Hash-Map and Doubly Linked List integration.       
 - **Smart Hydration:** Tail-to-Head file serialization ensures cache priority is preserved across system restarts.    
 - **LRU Cache Invalidation:** Automatic memory management with Least Recently Used (LRU) eviction policy when capacity is reached.    
-- **Persistent Storage:** Filesystem-based cache persistence for recovery after restarts.    
+- **Persistent Storage:** Filesystem-based cache persistence for recovery after restarts and explicit termination.   
 - **Minimal Footprint:** Zero external dependencies; optimized for embedded or sidecar use cases.
 
 ## Performance data
