@@ -12,9 +12,13 @@ int main(){
 
     std::cout<<"velocache >>>>\n";
 
+    load_from_file(); //load cache data once every session
+
+    atexit([]() { store_cache_data(head); }); //save cache data when application exits implicitly
+
     do{
-        std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Exit\n";
-        load_from_file();
+        std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Save Cache\n5. Exit\n";
+        
         choice = getValidatedChoice();  //get validated choice from 'utils/input_validation.cpp'
         
         switch(choice){
@@ -29,7 +33,6 @@ int main(){
                     data = getValidatedValueInput();
                     putValue(userName, data);
                 }
-                store_cache_data(head);
                 break;
 
             case 2: 
@@ -37,7 +40,6 @@ int main(){
                 dataNeeded = getValidatedKeyInput();
                 if (!dataNeeded.empty()) {
                     std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
-                    store_cache_data(head);
                 }
                 break;
 
@@ -45,10 +47,16 @@ int main(){
                 std::cout<<std::endl;
                 printData();
                 break;
-
+            
             case 4: 
+                std::cout << "Saving cache to disk..." << std::endl;
+                store_cache_data(head);
+                std::cout << "Cache saved successfully." << std::endl;
+                break;
+
+            case 5: 
                 std::cout<<"Server terminated.\n";
-                exit(0);
+                exit(0); //triggers atexit()
             
             default: std::cout<<"Invalid choice! Try again.\n";
         }
