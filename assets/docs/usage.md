@@ -68,7 +68,7 @@ Enter key: abc
 Getting data: Value NOT found!
 ```
 
-5. Saving the Cache can be done explicitly done be the user or the Cache get saved implicitely via `atexit([]() { store_cache_data(head); })` when the application terminates.
+5. Saving the Cache can be done explicitly done be the user or the Cache get saved implicitely via `atexit([]() { store_cache_data(head); })` when the application terminates normally via option **5** (Exit). Saving Cache during abnormal termination is not implemented as of now
 
 ```txt
 Select an option (1-5): 4
