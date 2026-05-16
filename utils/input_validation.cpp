@@ -10,12 +10,12 @@ int getValidatedChoice() {
     std::string input;
     int choice;
     
-    std::cout << "Select an option (1-4): ";
+    std::cout << "Select an option (1-5): ";
     while (std::getline(std::cin, input)) {
         try {
             choice = std::stoi(input);
 
-            if (choice >= 1 && choice <= 4 && input.length() == 1) {
+            if (choice >= 1 && choice <= 5 && input.length() == 1) {
                 return choice;
             }
             
