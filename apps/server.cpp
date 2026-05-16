@@ -17,7 +17,7 @@ int main(){
     atexit([]() { store_cache_data(head); }); //save cache data when application exits implicitly or explicity
 
     do{
-        std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Save Data\n5. Exit\n";
+        std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Save Cache\n5. Exit\n";
         
         choice = getValidatedChoice();  //get validated choice from 'utils/input_validation.cpp'
         
