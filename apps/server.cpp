@@ -14,7 +14,7 @@ int main(){
 
     load_from_file(); //load cache data once every session
 
-    atexit([]() { store_cache_data(head); }); //save cache data when application exits implicitly or explicity
+    atexit([]() { store_cache_data(head); }); //save cache data when application exits implicitly
 
     do{
         std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Save Cache\n5. Exit\n";
@@ -56,7 +56,7 @@ int main(){
 
             case 5: 
                 std::cout<<"Server terminated.\n";
-                exit(0);
+                exit(0); //triggers atexit()
             
             default: std::cout<<"Invalid choice! Try again.\n";
         }
