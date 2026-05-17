@@ -4,6 +4,25 @@
 #include "../include/common.hpp"
 #include "../include/utils.hpp"
 #include <cctype>
+#include <csignal>
+#include <cstdlib>
+
+namespace {
+void persistCacheOnExit() {
+    store_cache_data(head);
+}
+
+void handleTerminationSignal(int signal) {
+    std::signal(signal, SIG_DFL);
+    std::exit(128 + signal);
+}
+
+void registerShutdownHandlers() {
+    std::atexit(persistCacheOnExit);
+    std::signal(SIGINT, handleTerminationSignal);
+    std::signal(SIGTERM, handleTerminationSignal);
+}
+}
 
 int main(){
     int number, choice;
@@ -14,7 +33,7 @@ int main(){
 
     load_from_file(); //load cache data once every session
 
-    atexit([]() { store_cache_data(head); }); //save cache data when application exits implicitly
+    registerShutdownHandlers(); //save cache data during normal exits and termination signals
 
     do{
         std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Save Cache\n5. Exit\n";
