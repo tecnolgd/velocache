@@ -40,7 +40,7 @@ void printData(){
         if (currentLine.empty()){ //loop till the n-1 (EOF-1) line
             continue;
         }
-        // Print the previous line first (since it wasn't the last line). Executes total_lines - 1 times
+        // Print the previous line first (since it wasn't the last line). Executes [total_lines - 1] times
         if (!isFirst) {
             std::cout << previousLine << std::endl;
         }
@@ -56,7 +56,6 @@ void printData(){
     else{
         std::cout<<"Oops! Data cant't be displayed at the moment.\n";
     }
-    
 }
 
 //load cache data from the last session
