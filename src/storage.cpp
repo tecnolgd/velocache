@@ -28,18 +28,30 @@ void store_cache_data(Node* current){
 //to print DLL data from the file
 void printData(){
     std::fstream cacheFile;
+    std::string currentLine;
+    std::string previousLine = "";
+    bool isFirst = true;
+   
     cacheFile.open("assets/cache_data.txt", std::ios::in);
-    if(cacheFile.is_open()){
-        std::string line;
-        int counter = 1;
-        std::cout << " Key  |  Value"<<std::endl;
-        while(getline(cacheFile, line) && counter <= 2){
-            
-            std::cout << "* " << line <<std::endl;
-            counter++;
+
+    std::cout << " Key  |  Value"<<std::endl;
+
+    while (std::getline(cacheFile, currentLine)) {
+        if (currentLine.empty()){ //loop till the n-1 (EOF-1) line
+            continue;
         }
-        
-        std::cout<<"* " << line <<" [ Recent ]\n";
+        // Print the previous line first (since it wasn't the last line). Executes [total_lines - 1] times
+        if (!isFirst) {
+            std::cout << previousLine << std::endl;
+        }
+
+        previousLine = currentLine;
+        isFirst = false;
+    }
+
+    // The loop ended, meaning 'previousLine' holds the absolute LAST line in the file
+    if (!isFirst && !previousLine.empty()) {
+        std::cout << previousLine << "  [ Recent ]" << std::endl;
     }
     else{
         std::cout<<"Oops! Data cant't be displayed at the moment.\n";
