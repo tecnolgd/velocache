@@ -25,9 +25,23 @@
 - **Minimal Footprint:** Zero external dependencies; optimized for embedded or sidecar use cases.
 
 ## Performance data
-Results achieved from internal benchmarking [for 10k operations involving *putValue()* module]      
-- **Throughput:** ~24006 ops/sec
-- **Time Complexity:** $O(1)$
+Results achieved from internal benchmarking [for 10k operations]
+
+```txt
+================================================
+            velocache Benchmark Run             
+================================================
+Total Operations : 10000 puts
+Total Runtime    : 0.312611s
+Throughput       : 31988.6 ops/sec
+
+Latency Metrics (Microseconds):
+  Average        : 31.2611 μs
+  p50 (Median)   : 4.235 μs
+  p95 Tail       : 43.45 μs
+  p99 Tail       : 67.857 μs
+================================================
+```
 
 ## Documentation
 - [Architecture](assets/docs/architecture.md)
