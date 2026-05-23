@@ -8,8 +8,7 @@
   - LRU cache invalidation strategy with configurable capacity
   - Linux system support
   - Makefile build system with modular compilation
-  - Benchmark tool for performance testing (~24k ops/sec)
-  - Unit tests included
+  - Benchmark tool for performance testing (p99, p50, p95 latencies included)
 
 - 🔄 **In Progress:** 
   - Robustness improvements and edge-case handling
