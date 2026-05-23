@@ -5,7 +5,7 @@
 <a href = "https://opensource.org/licenses/MIT"><img src = "https://img.shields.io/badge/License-MIT-green.svg" alt = "MIT License"></a>
 <img src = "https://img.shields.io/badge/g++-13.3.0%2B-blue" alt = "g++ 13.3.0+">
 <img src = "https://img.shields.io/badge/storage-Filesystem-green" alt = "Storage: Filesystem">
-<a href = "https://github.com/tecnolgd/velocache/releases"><img src = "https://img.shields.io/badge/Release-v0.1.0_(beta)-orange" alt = "Release: v0.1.0-beta"></a>
+<a href="https://github.com/tecnolgd/velocache/releases"><img src="https://img.shields.io/github/v/release/tecnolgd/velocache?include_prereleases" alt="Release">
 <a href="https://github.com/tecnolgd/velocache/graphs/contributors"><img src="https://img.shields.io/github/contributors/tecnolgd/velocache?style=flat&color=orange" alt="Contributors Badge">
 </a>
 <a href = "#documentation"><img src = "https://img.shields.io/badge/docs-available-blue" alt = "Docs"></a>
