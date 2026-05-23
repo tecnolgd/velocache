@@ -100,8 +100,7 @@ A huge thanks to the developers contributing to velocache.
 
 - [nvphungdev](https://github.com/nvphungdev)
 
-## Author & Version
+## Author & License
 
-- **Author:** tecnolgd  
-- **Version:** v0.1.0-beta  
+- **Author:** tecnolgd   
 - **License:** [MIT License](LICENSE.md)
