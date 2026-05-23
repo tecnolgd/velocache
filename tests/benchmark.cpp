@@ -41,7 +41,7 @@ void runBenchmark(int operations) {
 
     // Output Performance Analysis
     std::cout << "================================================\n";
-    std::cout << "            VeloCache Benchmark Run             \n";
+    std::cout << "            velocache Benchmark Run             \n";
     std::cout << "================================================\n";
     std::cout << "Total Operations : " << operations << " puts\n";
     std::cout << "Total Runtime    : " << totalDiff.count() << "s\n";
