@@ -9,6 +9,7 @@
   - Linux system support
   - Makefile build system with modular compilation
   - Benchmark tool for performance testing (p99, p50, p95 latencies included)
+  - Sample GIF examples for the benchmark and server programs
 
 - 🔄 **In Progress:** 
   - Robustness improvements and edge-case handling
