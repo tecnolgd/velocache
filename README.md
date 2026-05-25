@@ -25,7 +25,10 @@
 - **Minimal Footprint:** Zero external dependencies; optimized for embedded or sidecar use cases.
 
 ## Performance data
-Results achieved from internal benchmarking [10k operations for `getValue()` and `putValue()`]
+
+- Check the sample [**BenchMark**](assets/v_bench_demo.gif) execution (Benchmarked for **100k operations** for **clear visibility** of the process execution )
+
+- Results achieved from internal benchmarking [**10k operations** for `getValue()` and `putValue()`]
 
 ```txt
 ================================================
