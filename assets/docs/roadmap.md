@@ -8,7 +8,11 @@
   - LRU cache invalidation strategy with configurable capacity
   - Linux system support
   - Makefile build system with modular compilation
-  - Benchmark tool for performance testing (p99, p50, p95 latencies included)
+  - Comprehensive benchmark suite with CSV logging for performance tracking:
+    - p50, p95, p99 latency percentiles
+    - Throughput measurements (ops/sec)
+    - Automated results persistence to `benchmarks_log.csv`
+    - Historical trend analysis capabilities
   - Sample GIF examples for the benchmark and server programs
 
 - 🔄 **In Progress:** 

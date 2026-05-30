@@ -3,3 +3,4 @@
 *build
 *assets/*.txt
 *.vscode/
+*assets/*.csv

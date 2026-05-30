@@ -17,8 +17,8 @@ $(BUILD_DIR):
 v_server: src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp $(DEPS)
 	$(CC) $(CFLAGS) src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -o $(BUILD_DIR)/v_server
 
-v_bench: src/cache.cpp tests/benchmark.cpp $(DEPS)
-	$(CC) $(CFLAGS) src/cache.cpp tests/benchmark.cpp -o $(BUILD_DIR)/v_bench
+v_bench: src/cache.cpp utils/metrics.cpp tests/benchmark.cpp $(DEPS)
+	$(CC) $(CFLAGS) src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -o $(BUILD_DIR)/v_bench
 
 clean:
 	rm -rf $(BUILD_DIR)/*
