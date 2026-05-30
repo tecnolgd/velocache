@@ -2,11 +2,13 @@
 //command to run benchmark: g++ -O3 src/cache.cpp tests/benchmark.cpp -o build/v_bench
 
 #include <iostream>
+#include <fstream>
 #include <chrono>
 #include <vector>
 #include <algorithm>
 #include <string>
 #include "../include/cache.hpp" 
+#include "../include/utils.hpp"
 
 void printMetrics(const std::string& opName, int operations, double totalTime, std::vector<double>& latencies) {
     std::sort(latencies.begin(), latencies.end());
@@ -23,6 +25,8 @@ void printMetrics(const std::string& opName, int operations, double totalTime, s
     std::cout << "    p95 Tail       : " << p95        << " μs\n";
     std::cout << "    p99 Tail       : " << p99        << " μs\n";
     std::cout << "------------------------------------------------\n";
+
+    exportMetricsToCSV(opName, p50, p95, p99);
 }
 
 void runFullSuite(int operations) {
@@ -81,6 +85,7 @@ void runFullSuite(int operations) {
 }
 
 int main(){
-    runFullSuite(10000); 
+
+    runFullSuite(10000);
     return 0;
 }
