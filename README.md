@@ -91,12 +91,14 @@ g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I.
 2. The Benchmark Tool     
 - Build:       
 ```bash
-g++ src/cache.cpp tests/benchmark.cpp -I./include -Wall -o build/v_bench
+g++ src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -I./include -Wall -o build/v_bench
 ```     
 - Run:     
 ```bash
 ./build/v_bench
 ```
+>For more details, check [Benchmark usage](assets/docs/usage.md#the-benchmark-tool)
+
 ## [Contributing](CONTRIBUTING.md)
 
 ## Contributors
