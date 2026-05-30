@@ -27,6 +27,7 @@ void printMetrics(const std::string& opName, int operations, double totalTime, s
     std::cout << "------------------------------------------------\n";
 
     exportMetricsToCSV(opName, p50, p95, p99);
+    std::cout<<"________________________________________________\n\n";
 }
 
 void runFullSuite(int operations) {
