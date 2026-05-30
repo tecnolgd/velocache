@@ -78,9 +78,56 @@ Cache saved successfully.
 ```
 
 ## The Benchmark tool
-1. Follow the build instructions for the benchmark tool and run the build file.
-2. The program would run until 10k iterations and display the **Average time and operations/second**.      
-> Note: This benchmark is currently for the putValue() module; benchmarking for other modules would be added in the future versions.
+
+### Overview
+The velocache benchmark suite is designed to measure and track performance metrics across different cache operations. It provides comprehensive latency analysis and throughput measurements with automated CSV logging for trend analysis.
+
+### Running the Benchmark
+1. Follow the build instructions for the benchmark tool and run the build file:
+   ```bash
+   make v_bench
+   ./build/v_bench
+   ```
+2. The program executes **10,000 iterations** for both `getValue()` and `putValue()` operations and displays real-time metrics including:
+   - **Throughput:** Operations per second (ops/sec)
+   - **Latency Percentiles:** p50 (median), p95, and p99 tail latencies in microseconds
+   - **Average Latency:** Mean latency across all operations
+
+### CSV Logging & Data Persistence
+Benchmark results are automatically logged to **`assets/benchmarks_log.csv`** with the following fields:
+- **timestamp:** ISO 8601 formatted timestamp of the benchmark run
+- **operation:** Operation type (PUT Writes or GET Reads)
+- **p50_latency_us:** Median latency in microseconds
+- **p95_latency_us:** 95th percentile latency in microseconds
+- **p99_latency_us:** 99th percentile latency in microseconds
+
+This allows for historical performance tracking and trend analysis across multiple benchmark runs.
+
+### Example Output
+```
+================================================
+              velocache Benchmark           
+================================================
+  PUT (Writes) Throughput : 16718 ops/sec
+  Latency Metrics (Microseconds):
+    Average        : 59.8157 μs
+    p50 (Median)   : 4.043 μs
+    p95 Tail       : 43.999 μs
+    p99 Tail       : 72.112 μs
+------------------------------------------------
+[✓] PUT (Writes) metrics successfully exported to assets/benchmarks_log.csv
+________________________________________________
+
+  GET (Reads)  Throughput : 3.92583e+06 ops/sec
+  Latency Metrics (Microseconds):
+    Average        : 0.254723 μs
+    p50 (Median)   : 0.12 μs
+    p95 Tail       : 0.138 μs
+    p99 Tail       : 0.157 μs
+------------------------------------------------
+[✓] GET (Reads)  metrics successfully exported to assets/benchmarks_log.csv
+________________________________________________
+```
 
 ## Demo GIF
 [Demo](../v_demo.gif)
