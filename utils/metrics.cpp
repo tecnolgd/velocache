@@ -30,7 +30,7 @@ void exportMetricsToCSV(const std::string& opName, double p50, double p95, doubl
     // 3. Open file in append mode so consecutive suite runs don't overwrite history
     std::ofstream csvFile(filePath, std::ios::app);
     if (!csvFile.is_open()) {
-        std::cerr << "[-] Error: Could not open or create " << filePath << std::endl;
+        std::cerr << "[✗] Error: Could not open or create " << filePath << std::endl;
         return;
     }
 
@@ -55,5 +55,5 @@ void exportMetricsToCSV(const std::string& opName, double p50, double p95, doubl
             << p99 << "\n";
 
     csvFile.close();
-    std::cout << "[*] " << opName << " metrics successfully exported to " << filePath << std::endl;
+    std::cout << "[✓] " << opName << " metrics successfully exported to " << filePath << std::endl;
 }
