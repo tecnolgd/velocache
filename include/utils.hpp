@@ -12,4 +12,6 @@ int getValidatedNumberInput(int maxLimit = 1000); //get validated number from us
 
 void exportMetricsToCSV(const std::string& opName, double p50, double p95, double p99); //exporting benchmark metrics to CSV
 
+bool confirmOverwrite(const std::string& key); //to handle duplicate key inputs
+
 #endif
