@@ -14,7 +14,7 @@
     - Automated results persistence to `benchmarks_log.csv`
     - Historical trend analysis capabilities
   - Sample GIF examples for the benchmark and server programs
- - Duplicate key detection function with overwrite/skip option
+  - Duplicate key detection function with overwrite/skip option
 
 - 🔄 **In Progress:** 
   - Robustness improvements and edge-case handling
@@ -27,3 +27,4 @@
   - System monitoring stats (CPU, memory, network)
   - Plugin architecture support
   - Additional storage backends evaluation
+  - RAII/smart pointer implementation
