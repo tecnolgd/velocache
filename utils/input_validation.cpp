@@ -76,3 +76,25 @@ int getValidatedNumberInput(int maxLimit) {
     }
     return 0;
 }
+
+bool confirmOverwrite(const std::string& key) {
+    std::string input;
+    while (true) {
+        std::cout << "Warning: key '" << key << "' already exists. Overwrite? (y/n): ";
+        if (!std::getline(std::cin, input)) {
+            std::cin.clear();
+            continue;
+        }
+        if (input.empty()) {
+            continue;
+        }
+        char choice = std::tolower(input[0]);
+        if (choice == 'y') {
+            return true;
+        }
+        if (choice == 'n') {
+            return false;
+        }
+        std::cout << "Please enter 'y' or 'n'.\n";
+    }
+}
