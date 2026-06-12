@@ -49,6 +49,15 @@ int main(){
                 for(int i=0; i<number; i++){
                     std::cout<<"\n--- User "<<i+1<<" ---\n";
                     userName = getValidatedKeyInput();
+
+                    if (cacheMap.find(userName) != cacheMap.end()) {
+                        if (!confirmOverwrite(userName)) {
+                            std::cout << "Skipped duplicate key: " << userName << "\n";
+                            continue;
+                        }
+                        std::cout << "Overwriting existing value for key: " << userName << "\n";
+                    }
+
                     data = getValidatedValueInput();
                     putValue(userName, data);
                 }
