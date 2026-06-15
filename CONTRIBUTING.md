@@ -1,38 +1,46 @@
 
 ## Contributing to velocache
-- Thank you for your interest in contributing to velocache! We aim to build a high-performance cache-like tool.
+Thank you for your interest in contributing to velocache! We aim to build a high-performance, minimalist cache engine with a focus on efficiency.
 
-- Whether you’re fixing a bug, adding a new feature, or optimizing data structures used , your help is welcome.
+Whether you’re fixing a bug, adding a new feature, or optimizing data structures, your help is welcome.
 
 ### Development Setup
 To set up your local development environment and build the project, please follow the installation instructions in the [README.md](README.md#installation--build).
 
-*Additional Dev Note: Ensure you have `g++` or `make` installed, as our build process relies on standard GNU tools*.
-
+*Additional Dev Note: Ensure you have `g++` or `make` installed, as our build process relies on standard GNU tools.*
 
 ### Development Workflow
 - **Code Style:** Keep it clean and readable. Use standard C++17/20 practices.
-
 - **Performance:** velocache’s core goal is low overhead. Any new feature should have a minimal footprint on system resources.
+- **Testing:** If you add a new feature or benchmark, make it modular and ensure it does not break the main server, cache, or storage paths.
 
-- **Testing:** If you add a new metric or tests(e.g., Disk I/O, CPU stats, or benchmarks), please ensure it is modular and doesn't break the **apps/server.cpp**.
+## The Required Contribution Workflow
+To keep the codebase stable and ensure your time isn’t wasted, all contributors **must** follow this exact workflow. Pull Requests that skip these steps will be closed without code review.
 
-### How to Contribute
-1. **Fork** the repository.
+### 1. Find or Open an Issue First
+- Do not write code or open a Pull Request out of nowhere.
+- Look at our [Open Issues](https://github.com/tecnolgd/velocache/issues) tab. If you find a bug or a feature you want to tackle, comment on that specific issue stating your intent to fix it.
+- If you have a new idea, open a new issue first to discuss the architectural impact with the maintainers.
 
-2. Create a **new branch** for your feature: `git checkout -b feature/your-feature-name`.
+### 2. Wait to be Officially Assigned
+- **Do not start working until a maintainer officially assigns the issue to you.**
+- We will not accept PRs from unassigned contributors. This prevents multiple people from accidentally working on the exact same file at the same time.
 
-3. **Commit** your changes with clear, descriptive messages.
+### 3. One Branch, One Pull Request
+- When you are ready to submit, use standard keywords in your PR description to link your work (e.g., `Closes #30` or `Fixes #30`).
+- **Do not open duplicate Pull Requests.** If you need to fix your code, update your existing branch and push the new commits to your fork. The original Pull Request thread will update automatically.
 
-4. **Push** your branch and open a **Pull Request**.
+### 4. Code and Communication Standards
+- **Language:** All source code, terminal logs, pull request descriptions, and in-line code comments **must be written in English**.
+- Keep pull request descriptions clean, formatted, and focused entirely on the issue layout.
 
 ### Current Priorities
-
 Looking for a place to start?
-Check the [ROADMAP](assets/docs/roadmap.md) for planned ideas or [ISSUES](https://github.com/tecnolgd/velocache/issues) to start actively contributing to velocache.
-    
-or consider **your own** ideas to make velocache better. Some easy wins: 
-- Code refractoring
-- Terminal UI improvement
-- Documentation(like Architecture or Usage docs)
+- Check the [Roadmap](assets/docs/roadmap.md) for planned ideas.
+- Check [Open Issues](https://github.com/tecnolgd/velocache/issues) to find bugs and features you can contribute to.
+
+Some easy wins:
+- Code refactoring
+- Performance improvements
+- Documentation updates (Architecture or Usage docs)
 - Submitting issues or engaging in discussions
