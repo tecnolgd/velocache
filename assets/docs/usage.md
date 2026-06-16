@@ -149,4 +149,5 @@ ________________________________________________
 ```
 
 ## Demo GIF
-[Demo](../v_bench_demo.gif)
+- [Benchmark](../v_bench_demo.gif)
+- [CSV logging](../v_csv_demo.gif)

@@ -33,7 +33,7 @@
   - Throughput measurements in operations per second
   - Automated CSV logging to `assets/benchmarks_log.csv` for historical tracking and trend analysis
     
-    >Check the sample [CSV logging]() GIF for visual understanding.
+    >Check the sample [CSV logging](assets/v_csv_demo.gif) GIF for visual understanding.
 
 ## Documentation
 - [Architecture](assets/docs/architecture.md)
