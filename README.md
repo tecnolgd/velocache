@@ -26,12 +26,14 @@
 
 ## Performance data
 
-- Check the sample [**BenchMark**](assets/v_bench_demo.gif) execution (Benchmarked for **100k operations** for **clear visibility** of the process execution )
+> Check the sample [**BenchMark**](assets/v_bench_demo.gif) execution (Benchmarked for **100k operations** for **clear visibility** of the process execution )
 
 - Results from the integrated **Benchmark Suite** [**10,000 operations** for both `getValue()` and `putValue()`]
   - Comprehensive latency percentile analysis (p50, p95, p99)
   - Throughput measurements in operations per second
-  - Automated CSV logging to [`assets/benchmarks_log.csv`](assets/benchmarks_log.csv) for historical tracking and trend analysis
+  - Automated CSV logging to `assets/benchmarks_log.csv` for historical tracking and trend analysis
+    
+    >Check the sample [CSV logging]() GIF for visual understanding.
 
 ## Documentation
 - [Architecture](assets/docs/architecture.md)
@@ -99,7 +101,7 @@ g++ src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -I./include -Wall -o bui
 ```
 >For more details, check [Benchmark usage](assets/docs/usage.md#the-benchmark-tool)
 
-## [Contributing](CONTRIBUTING.md)
+## [Contributing](CONTRIBUTING.md#contributing-to-velocache)
 
 ## Contributors
 A huge thanks to the developers contributing to velocache.     
