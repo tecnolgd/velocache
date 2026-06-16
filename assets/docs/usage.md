@@ -1,7 +1,7 @@
 
 ## velocache Usage Info
 
-> To start using velocache, complete the [installation and build procedures](../../README.md#installation--build/).
+> To start using velocache, complete the [installation and build procedures](../../README.md#installation--build).
 >(Tip: Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time)
 
 ### The Application flow
@@ -58,7 +58,7 @@ Select an option (1-5):
     * 1     1 [ Recent ]
     ```
 
-    - If the cache is already full (i.e if current capacity of the cache = Max. capacity of the cache), then **eviction of the oldest** data takes place. (via [LRU eviction policy]())
+    - If the cache is already full (i.e if current capacity of the cache = Max. capacity of the cache), then **eviction of the oldest** data takes place. (Check [Algorithmic Flow](architecture.md#2-algorithmic-flow--complexity) for more details)
     - A log message regarding the data that is to be evicted would be displayed on the console and updated cache would be displayed instantly.
 ```txt
 Select an option (1-5): 1
@@ -149,4 +149,4 @@ ________________________________________________
 ```
 
 ## Demo GIF
-[Demo](../v_demo.gif)
+[Demo](../v_bench_demo.gif)
