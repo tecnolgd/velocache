@@ -86,7 +86,7 @@ make clean
 1. The Server     
 - Build:      
     ```bash
-        g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include -Wall -o build/v_server  
+    g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include -Wall -o build/v_server  
     ```      
 - Run:         
     ```bash   

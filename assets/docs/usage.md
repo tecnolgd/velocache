@@ -109,6 +109,8 @@ The velocache benchmark suite is designed to measure and track performance metri
 1. Follow the build instructions for the benchmark tool and run the build file:
    ```bash
    make v_bench
+   ```
+   ```bash
    ./build/v_bench
    ```
 2. The program executes **10,000 iterations** for both `getValue()` and `putValue()` operations and displays real-time metrics including:
