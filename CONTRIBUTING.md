@@ -1,10 +1,12 @@
 
 ## Contributing to velocache
+
 Thank you for your interest in contributing to velocache! We aim to build a high-performance, minimalist cache engine with a focus on efficiency.
 
 Whether you’re fixing a bug, adding a new feature, or optimizing data structures, your help is welcome.
 
 ### Development Setup
+
 To set up your local development environment and build the project, please follow the installation instructions in the [README.md](README.md#installation--build).
 
 *Additional Dev Note: Ensure you have `g++` or `make` installed, as our build process relies on standard GNU tools.*
@@ -15,6 +17,7 @@ To set up your local development environment and build the project, please follo
 - **Testing:** If you add a new feature or benchmark, make it modular and ensure it does not break the main server, cache, or storage paths.
 
 ## The Required Contribution Workflow
+
 To keep the codebase stable and ensure your time isn’t wasted, all contributors **must** follow this exact workflow. Pull Requests that skip these steps will be closed without code review.
 
 ### 1. Find or Open an Issue First
