@@ -1,10 +1,12 @@
 ## velocache Usage Info
 
-> To start using velocache, complete the [installation and build procedures](../../README.md#installation--build).
->(Tip: Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time)
+> To start using velocache, complete the [installation and build procedures](../../README.md#installation--build).     
+> [!TIP]
+> Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time
 
 ### The Application flow
-> (**Note:** A do-while loop is used for multiple sessions with user control to end the session)
+> [!NOTE]     
+> A do-while loop is used for multiple sessions with user control to end the sessio
 
 1. At the start of the excecution of the application, the **server** (src/server.cpp) will be already loaded with data from the previous session(if any).    
     - This data is loaded from a file called **cache_data.txt** located in the **assets/** folder. (This happens once every new session)   
@@ -59,6 +61,7 @@
         ```
 
     - If the cache is already full (i.e if current capacity of the cache = Max. capacity of the cache), then **eviction of the oldest** data takes place. (Check [Algorithmic Flow](architecture.md#2-algorithmic-flow--complexity) for more details)
+
     - A log message regarding the data that is to be evicted would be displayed on the console and updated cache would be displayed instantly.
         ```txt
         Select an option (1-5): 1
@@ -114,7 +117,9 @@ The velocache benchmark suite is designed to measure and track performance metri
    - **Average Latency:** Mean latency across all operations
 
 ### CSV Logging & Data Persistence
+
 Benchmark results are automatically logged to **`assets/benchmarks_log.csv`** with the following fields:
+
 - **timestamp:** ISO 8601 formatted timestamp of the benchmark run
 - **operation:** Operation type (PUT Writes or GET Reads)
 - **p50_latency_us:** Median latency in microseconds
@@ -123,7 +128,7 @@ Benchmark results are automatically logged to **`assets/benchmarks_log.csv`** wi
 
 This allows for historical performance tracking and trend analysis across multiple benchmark runs.
 
-### Example Output
+### Sample Output
 ```
 ================================================
               velocache Benchmark           
