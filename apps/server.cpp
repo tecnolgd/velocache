@@ -7,21 +7,21 @@
 #include <csignal>
 #include <cstdlib>
 
-namespace {
-void persistCacheOnExit() {
-    store_cache_data(head);
-}
+namespace {     //used to keep the enclosed functions private and accessible only in this file
+    void persistCacheOnExit() {
+        store_cache_data(head);
+    }
 
-void handleTerminationSignal(int signal) {
-    std::signal(signal, SIG_DFL);
-    std::exit(128 + signal);
-}
+    void handleTerminationSignal(int signal) {
+        std::signal(signal, SIG_DFL);
+        std::exit(128 + signal);
+    }
 
-void registerShutdownHandlers() {
-    std::atexit(persistCacheOnExit);
-    std::signal(SIGINT, handleTerminationSignal);
-    std::signal(SIGTERM, handleTerminationSignal);
-}
+    void registerShutdownHandlers() {
+        std::atexit(persistCacheOnExit);
+        std::signal(SIGINT, handleTerminationSignal);
+        std::signal(SIGTERM, handleTerminationSignal);
+    }
 }
 
 int main(){
@@ -91,4 +91,4 @@ int main(){
     }while(true);
         
     return 0;
-}
+}J
