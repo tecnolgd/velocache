@@ -26,6 +26,7 @@
 
 ## Performance data
 
+> [!TIP]      
 > Check the sample [**BenchMark**](assets/v_bench_demo.gif) execution (Benchmarked for **100k operations** for **clear visibility** of the process execution )
 
 - Results from the integrated **Benchmark Suite** [**10,000 operations** for both `getValue()` and `putValue()`]
@@ -33,7 +34,7 @@
   - Throughput measurements in operations per second
   - Automated CSV logging to `assets/benchmarks_log.csv` for historical tracking and trend analysis
     
-    >Check the sample [CSV logging](assets/v_csv_demo.gif) GIF for visual understanding.
+    > Check the sample [CSV logging](assets/v_csv_demo.gif) GIF for visual understanding.
 
 ## Documentation
 - [Architecture](assets/docs/architecture.md)
@@ -42,7 +43,8 @@
 
 ## Installation & Build
 
->Ensure you have `g++` installed( `make` recommended). 
+> [!IMPORTANT]    
+> Ensure you have `g++` installed( `make` recommended). 
 ```bash
 #clone the repo
 git clone https://github.com/tecnolgd/velocache/
@@ -54,25 +56,25 @@ cd velocache
 
 From the project directory, run the following commands:    
 
- ### Using make (recommended) 
+### Using make (recommended) 
 
 - Build **both** the server and the benchmark tool
 ```bash
-    make
+make
 ```
 or
 ```bash
-    make all
+make all
 ```
 
 - Build and run individualy      
     - **The Server**:     
     ```bash
-        make v_server
+    make v_server
     ```       
     - **The Benchmark Tool**:
     ```bash
-        make v_bench
+    make v_bench
     ```
 - Clean object files:
 ```bash
@@ -80,26 +82,27 @@ make clean
 ```
 
 ### Manual Build and Run
+
 1. The Server     
 - Build:      
-```bash
-g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include -Wall -o build/v_server  
-```      
-- Run:      
-```bash   
-./build/v_server
-```      
+    ```bash
+        g++ src/cache.cpp src/storage.cpp apps/server.cpp utils/input_validation.cpp -I./include -Wall -o build/v_server  
+    ```      
+- Run:         
+    ```bash   
+    ./build/v_server
+    ```      
 
 2. The Benchmark Tool     
 - Build:       
-```bash
-g++ src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -I./include -Wall -o build/v_bench
-```     
+    ```bash
+    g++ src/cache.cpp utils/metrics.cpp tests/benchmark.cpp -I./include -Wall -o build/v_bench
+    ```     
 - Run:     
-```bash
-./build/v_bench
-```
->For more details, check [Benchmark usage](assets/docs/usage.md#the-benchmark-tool)
+    ```bash
+    ./build/v_bench
+    ```
+    >For more details, check [Benchmark usage](assets/docs/usage.md#the-benchmark-tool)
 
 ## [Contributing](CONTRIBUTING.md#contributing-to-velocache)
 
