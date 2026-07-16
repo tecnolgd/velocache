@@ -1,12 +1,12 @@
 ## velocache Usage Info
 
-> To start using velocache, complete the [installation and build procedures](../../README.md#installation--build).     
-> [!TIP]
-> Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time
+> [!IMPORTANT]    
+> To start using velocache, complete the [installation and build procedures](../../README.md#installation--build).    
+> Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time.
 
 ### The Application flow
 > [!NOTE]     
-> A do-while loop is used for multiple sessions with user control to end the sessio
+> A do-while loop is used for multiple sessions with user control to end the session.
 
 1. At the start of the excecution of the application, the **server** (src/server.cpp) will be already loaded with data from the previous session(if any).    
     - This data is loaded from a file called **cache_data.txt** located in the **assets/** folder. (This happens once every new session)   
