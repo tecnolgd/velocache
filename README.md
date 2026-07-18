@@ -2,17 +2,17 @@
 <h1 style="font-size: 60px; font-family: roboto;" align= "center">velocache</h1>
 
 <div align = "center">
-<a href = "https://opensource.org/licenses/MIT"><img src = "https://img.shields.io/badge/License-MIT-green.svg" alt = "MIT License"></a>
-<img src = "https://img.shields.io/badge/g++-13.3.0%2B-blue" alt = "g++ 13.3.0+">
-<img src = "https://img.shields.io/badge/storage-Filesystem-green" alt = "Storage: Filesystem">
-<a href="https://github.com/tecnolgd/velocache/releases"><img src="https://img.shields.io/github/v/release/tecnolgd/velocache?include_prereleases" alt="Release">
-<a href="https://github.com/tecnolgd/velocache/graphs/contributors"><img src="https://img.shields.io/github/contributors/tecnolgd/velocache?style=flat&color=orange" alt="Contributors Badge">
+<a href = "LICENSE.md"><img src = "https://img.shields.io/github/license/tecnolgd/velocache?color=1a1a1a&style=flat-square" alt = "MIT License"></a>
+<a href="https://ftp.gnu.org/gnu/gcc/"><img src="https://img.shields.io/badge/g++-13.3.0%2B-1a1a1a?style=flat-square" alt="g++ 13.3.0+"></a>
+<img src = "https://img.shields.io/badge/storage-filesystem-1a1a1a?style=flat-square" alt = "Storage: Filesystem">
+<a href="https://github.com/tecnolgd/velocache/releases"><img src="https://img.shields.io/github/v/release/tecnolgd/velocache?include_prereleases&color=1a1a1a&style=flat-square?" alt="Release">
+<a href="https://github.com/tecnolgd/velocache/graphs/contributors"><img src="https://img.shields.io/github/contributors/tecnolgd/velocache?color=1a1a1a&style=flat-square" alt="Contributors Badge">
 </a>
-<a href = "#documentation"><img src = "https://img.shields.io/badge/docs-available-blue" alt = "Docs"></a>
+<a href = "#documentation"><img src = "https://img.shields.io/badge/docs-available-1a1a1a?style=flat-square" alt = "Docs"></a>
 </div>
 <hr>
 
-> A high-performance, $O(1)$ LRU Cache Server built in C++ with persistent storage capabilities.
+> velocache is a high-performance, in-memory LRU (Least Recently Used) cache engine designed for $O(1)$ operations and reliable state persistence.
 ---
 ![velocache_demo](assets/v_demo_2.gif)
 

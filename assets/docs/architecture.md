@@ -1,8 +1,6 @@
 <!--velocache architecture breakdown-->
 
-# velocache Architecture Breakdown
-
->velocache is a high-performance, in-memory LRU (Least Recently Used) cache engine designed for $O(1)$ operations and reliable state persistence.
+# Architecture Overview
 
 ## 1. High-Level Design
 
@@ -17,15 +15,15 @@ The system is built on two primary data structures that work in tandem to provid
 
 ## 2. Algorithmic Flow ($O(1)$ Complexity)  
 
-- `getValue(std::string key)`Operation:      
+- `getValue(std::string key) `Operation: 
 
     1. **Lookup:** Check the Hash-Map for the key      
     2. **Cache Hit:** If found, use the pointer to jump directly to the DLL node.       
-    3. **Promote:** Remove the node from its current position in the DLL and re-insert it at the Head.     
-    4. **Return:** Return the value.      
+    3.  **Promote:** Remove the node from its current position in the DLL and re-insert it at the Head.     
+    4.  **Return:** Return the value.      
 
 
-- `putValue(std::string key, std::string value)` Operation:  
+- `putValue(std::string key, std::string value)` Operation:      
 
     1. **Check Existence:** If the key exists, update the value and Promote to Head.     
     2. **Check Capacity:** If the cache is full, the system identifies the node at the Tail (the oldest data).       
@@ -33,6 +31,42 @@ The system is built on two primary data structures that work in tandem to provid
     4. **Insert:** Create a new node at the Head and record its pointer in the Hash-Map.      
 
 
+### Mermaid Overview
+
+```mermaid
+    flowchart TB
+    Start --> Load[Load Cache Data] --> Register[Register Shutdown Handlers] --> Menu
+
+    Menu --> GetChoice[Get Validated Choice] --> Choice{Choice Is?}
+    
+    %% Option-1: Storage
+    Choice -- 1: Storage --> InputUsers[Get Number of Users]
+    InputUsers --> UserLoop{For Each User}
+    UserLoop -- Loop Done --> Menu
+    UserLoop -- Next User --> KeyInput[Get Validated Key & Value]
+    KeyInput --> Duplicate{Is Key Duplicate?}
+    
+    Duplicate -- No ---> Put[Put Value in Cache] --> UserLoop
+    Duplicate -- Yes --> Overwrite{Confirm Overwrite?}
+    Overwrite -- Yes ---> Put
+    Overwrite -- No --> UserLoop
+
+    %% Option-2: Retrieval
+    Choice -- 2: Data Retrieval --> GetKey[Get Validated Key]
+    GetKey --> PrintVal[Print Retrieved Value] --> Menu
+
+    %% Option-3: Display
+    Choice -- 3: Cache Display --> Print[Print All Data] --> Menu
+
+    %% Option-4: Save Cache
+    Choice -- 4: Save Cache --> Save[Store Cache Data to File] --> Menu
+
+    %% Option-5: Exit
+    Choice -- 5: Exit --> Terminate[Server Terminated] --> Persist[Persist Cache via atexit] --> Stop
+
+    %% Invalid Choice
+    Choice -- Default/Invalid --> Invalid[Print Invalid Choice] --> Menu
+```
 ## 3. Persistence & Hydration Logic 
 
 One of velocache's unique features is its **Smart Hydration** policy.    
