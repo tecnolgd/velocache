@@ -22,7 +22,6 @@ The system is built on two primary data structures that work in tandem to provid
     3.  **Promote:** Remove the node from its current position in the DLL and re-insert it at the Head.     
     4.  **Return:** Return the value.      
 
-
 - `putValue(std::string key, std::string value)` Operation:      
 
     1. **Check Existence:** If the key exists, update the value and Promote to Head.     
@@ -30,6 +29,12 @@ The system is built on two primary data structures that work in tandem to provid
     3. **Evict:** Remove the Tail node from the DLL and erase its entry from the Hash-Map.       
     4. **Insert:** Create a new node at the Head and record its pointer in the Hash-Map.      
 
+- `clear_cache(Node* current)` Operation:       
+
+    1. **DLL Deallocation:** Traverse the list from `head` to `Tail`, calling `delete` on each node to free dynamic heap memory.
+    2. **Pointer Reset:** Set `head = nullptr` and `tail = nullptr` to eliminate dangling references.
+    3. **Map Purge:** Execute `cacheMap.clear()` to remove all stale key-to-node memory addresses.
+    5. **Disk Wiping:** Open storage file in truncation mode (`std::ios::trunc`) to sync RAM state with persistent storage.
 
 ### Mermaid Overview
 
@@ -61,8 +66,11 @@ The system is built on two primary data structures that work in tandem to provid
     %% Option-4: Save Cache
     Choice -- 4: Save Cache --> Save[Store Cache Data to File] --> Menu
 
-    %% Option-5: Exit
-    Choice -- 5: Exit --> Terminate[Server Terminated] --> Persist[Persist Cache via atexit] --> Stop
+    %% Option-5: Clear Cache
+    Choice -- 5: Clear cache ->Clear[Clear nodes and set head, tail to `nullptr`] -- Clear `CacheMap` --> Menu
+
+    %% Option-6: Exit
+    Choice -- 6: Exit --> Terminate[Server Terminated] --> Persist[Persist Cache via atexit] --> Stop
 
     %% Invalid Choice
     Choice -- Default/Invalid --> Invalid[Print Invalid Choice] --> Menu
