@@ -15,7 +15,7 @@ int getValidatedChoice() {
         try {
             choice = std::stoi(input);
 
-            if (choice >= 1 && choice <= 5 && input.length() == 1) {
+            if (choice >= 1 && choice <= 6 && input.length() == 1) {
                 return choice;
             }
             
