@@ -10,7 +10,7 @@ int getValidatedChoice() {
     std::string input;
     int choice;
     
-    std::cout << "Select an option (1-5): ";
+    std::cout << "Select an option (1-6): ";
     while (std::getline(std::cin, input)) {
         try {
             choice = std::stoi(input);
