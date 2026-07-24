@@ -87,7 +87,9 @@ void clear_cache(Node* current){
         delete current;
         current = next_node;
     }
-
+    
+    head = nullptr;
+    tail = nullptr;
     
     std::ofstream clear_file("assets/cache_data.txt", std::ios::out | std::ios::trunc);
     clear_file.close();
