@@ -87,10 +87,14 @@ void clear_cache(Node* current){
         delete current;
         current = next_node;
     }
-    
+   
+    //reset head and tail pointers
     head = nullptr;
     tail = nullptr;
     
+    //clear the map and set its size to zero
+    cacheMap.clear();
+     
     std::ofstream clear_file("assets/cache_data.txt", std::ios::out | std::ios::trunc);
     clear_file.close();
 
