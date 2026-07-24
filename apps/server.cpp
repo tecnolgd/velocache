@@ -36,7 +36,7 @@ int main(){
     registerShutdownHandlers(); //save cache data during normal exits and termination signals
 
     do{
-        std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Save Cache\n5. Exit\n";
+        std::cout<<"\nOperations supported\n1. Data storage\n2. Data retrieval\n3. Cache display\n4. Save Cache\n5. Clear Cache\n6. Exit\n";
         
         choice = getValidatedChoice();  //get validated choice from 'utils/input_validation.cpp'
         
@@ -83,6 +83,11 @@ int main(){
                 break;
 
             case 5: 
+                std::cout<<"Clearing cache..."<<std::endl;
+                clear_cache(head);
+                break;
+
+            case 6: 
                 std::cout<<"Server terminated.\n";
                 exit(0); //triggers atexit()
             
