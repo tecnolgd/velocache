@@ -1,6 +1,7 @@
 //cache data storage and loading mechanisms via file handling
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 #include <string>
 #include "../include/cache.hpp"
 #include "../include/common.hpp"
@@ -67,10 +68,35 @@ void load_from_file(){
 
     std::string key, data;
 
-    while (load_file >> key >> data) {
-        putValue(key, data); 
+    if(! std::filesystem::is_empty("assets/cache_data.txt")){
+    
+        while (load_file >> key >> data) {
+            putValue(key, data); 
+        }
     }
 
     load_file.close();
     std::cout<<"LOG: Cache loaded from the file" <<std::endl;
 }
+
+//clear cache
+void clear_cache(Node* current){
+   
+    while(current != nullptr){
+        Node* next_node = current->next;
+        delete current;
+        current = next_node;
+    }
+   
+    //reset head and tail pointers
+    head = nullptr;
+    tail = nullptr;
+    
+    //clear the map and set its size to zero
+    cacheMap.clear();
+     
+    std::ofstream clear_file("assets/cache_data.txt", std::ios::out | std::ios::trunc);
+    clear_file.close();
+
+    std::cout<<"Cache cleared successfully."<<std::endl;
+} 
