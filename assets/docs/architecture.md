@@ -67,7 +67,7 @@ The system is built on two primary data structures that work in tandem to provid
     Choice -- 4: Save Cache --> Save[Store Cache Data to File] --> Menu
 
     %% Option-5: Clear Cache
-    Choice -- 5: Clear cache ->Clear[Clear nodes and set head, tail to `nullptr`] -- Clear `CacheMap` --> Menu
+    Choice -- 5: Clear cache ->Clear[Clear nodes and set head, tail to `nullptr`] -- Clear CacheMap --> Menu
 
     %% Option-6: Exit
     Choice -- 6: Exit --> Terminate[Server Terminated] --> Persist[Persist Cache via atexit] --> Stop
