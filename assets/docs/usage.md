@@ -24,8 +24,9 @@
         2. Data retrieval
         3. Cache display
         4. Save Cache
-        5. Exit
-        Select an option (1-5): 
+        5. Clear Cache
+        6. Exit
+        Select an option (1-6): 
         ```
 
 3. Enter the key and data pairs as prompted by the application. By default, the application takes **strings as both key and value** unless modified by the user for their needs and requirements.
@@ -52,7 +53,7 @@
     - While choosing option **3**, the current cache would be displayed on the console with the recently used element (either **recently** added or retrieved since retrieval changes the location of the key-value pair) labelled for user interpretation.
 
         ```txt
-        Select an option (1-5): 3
+        Select an option (1-6): 3
 
         Key      |  Value
         * user_k     12345
@@ -64,7 +65,7 @@
 
     - A log message regarding the data that is to be evicted would be displayed on the console and updated cache would be displayed instantly.
         ```txt
-        Select an option (1-5): 1
+        Select an option (1-6): 1
         Enter number of users: 1
 
         --- User 1 ---
@@ -76,7 +77,7 @@
 4. The retrieval of value using the key can be achieved from **entering the key** on the console for the respective prompt.
     - If the key exists, then the corresponding value is displayed on the console with the cache order also getting updated since the retrieval made the data the recently accessed data from the cache.
         ```txt
-        Select an option (1-5): 2
+        Select an option (1-6): 2
 
         Enter key: user_n
         Getting data: 1211
@@ -84,16 +85,23 @@
 
     - If the key doesn't exists, then a message describing the absence of the key would be displayed on the console.
         ```txt
-        Select an option (1-5): 2
+        Select an option (1-6): 2
 
         Enter key: abc
         Getting data: Value NOT found!
         ```
 
-5. Saving the Cache can be done explicitly by the user, or the Cache gets saved implicitly when the application terminates normally via option **5** (Exit). The server also persists cache data when it receives supported termination signals such as **Ctrl+C** (`SIGINT`) and `SIGTERM`.
+5. The cache can be cleared completely bu the user via option **5**(Clear Cache). This operation clears all the nodes and the pointers with resetting `head` and `tail` to `nullptr`. It also clears `cacheMap` and makes its size to 0. The file(`assets/cache_data.txt`) is also truncated.
+    ```txt
+    Select an option (1-6): 5
+    Clearing cache...
+    Cache cleared successfully.
+    ```
+
+6. Saving the Cache can be done explicitly by the user, or the Cache gets saved implicitly when the application terminates normally via option **6** (Exit). The server also persists cache data when it receives supported termination signals such as **Ctrl+C** (`SIGINT`) and `SIGTERM`.
 
     ```txt
-    Select an option (1-5): 4
+    Select an option (1-6): 4
     Saving cache to disk...
 
     Cache saved successfully.
