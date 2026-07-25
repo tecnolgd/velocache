@@ -121,8 +121,11 @@ int validate_file(std::ifstream &fileObj){
         std::stringstream ss(line);
         std::string key, value;
 
-        if(ss >> key >> value){
+        if(ss >> key){
             
+            ss >> std::ws;  
+            std::getline(ss, value);
+
             putValue(key, value);
             success_line_count ++;
         }
