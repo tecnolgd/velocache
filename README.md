@@ -14,7 +14,23 @@
 
 > velocache is a high-performance, in-memory LRU (Least Recently Used) cache engine designed for $O(1)$ operations and reliable state persistence.
 ---
-![velocache_demo](assets/v_demo_2.gif)
+
+
+## Sample Menu
+
+ ```txt
+velocache >>>>
+LOG: Cache loaded from the file
+
+Operations supported
+1. Data storage
+2. Data retrieval
+3. Cache display
+4. Save Cache
+5. Clear Cache
+6. Exit
+Select an option (1-6): 
+ ```
 
 ## Key Features:
 
