@@ -59,7 +59,9 @@ The system is built on two primary data structures that work in tandem to provid
 
 ```mermaid
     flowchart TB
-    Start -->Load[Load Cache Data] --> Register[Register Shutdown Handlers] --> Menu
+    Start -->Validate{Is file data valid?}
+    Validate -- Yes --> Load[Load Cache Data] --> Register[Register Shutdown Handlers] --> Menu
+    Validate -- No -->Check_Next[Check Next Data] -->Validate 
 
     Menu --> GetChoice[Get Validated Choice] --> Choice{Choice Is?}
     
