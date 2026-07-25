@@ -14,7 +14,23 @@
 
 > velocache is a high-performance, in-memory LRU (Least Recently Used) cache engine designed for $O(1)$ operations and reliable state persistence.
 ---
-![velocache_demo](assets/v_demo_2.gif)
+
+
+## Sample Menu
+
+ ```txt
+velocache >>>>
+LOG: Cache loaded from the file
+
+Operations supported
+1. Data storage
+2. Data retrieval
+3. Cache display
+4. Save Cache
+5. Clear Cache
+6. Exit
+Select an option (1-6): 
+ ```
 
 ## Key Features:
 
@@ -26,15 +42,17 @@
 
 ## Performance data
 
-> [!TIP]      
-> Check the sample [**BenchMark**](assets/v_bench_demo.gif) execution (Benchmarked for **100k operations** for **clear visibility** of the process execution )
+| Operation | Throughput (ops/sec) | Latency (p50) | Latency (p95) | Latency (p99) | Latency (Avg) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **PUT** | 89,118 | 4.23 μs | 43.97 μs | 76.13 μs | 11.22 μs |
+| **GET** | 4.41 M | 0.11 μs | 0.14 μs | 0.15 μs | 0.23 μs |
 
 - Results from the integrated **Benchmark Suite** [**10,000 operations** for both `getValue()` and `putValue()`]
   - Comprehensive latency percentile analysis (p50, p95, p99)
   - Throughput measurements in operations per second
   - Automated CSV logging to `assets/benchmarks_log.csv` for historical tracking and trend analysis
     
-    > Check the sample [CSV logging](assets/v_csv_demo.gif) GIF for visual understanding.
+    > Check the sample [CSV logging](assets/docs/usage.md#csv-logging-sample) sample for further details.
 
 ## Documentation
 - [Architecture](assets/docs/architecture.md)

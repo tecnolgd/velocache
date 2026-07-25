@@ -164,6 +164,13 @@ ________________________________________________
 ________________________________________________
 ```
 
-## Demo GIF
-- [Benchmark](../v_bench_demo.gif)
-- [CSV logging](../v_csv_demo.gif)
+## CSV logging sample
+
+```csv
+timestamp,operation,p50_latency_us,p95_latency_us,p99_latency_us
+2026-07-25T09:30:21Z,PUT (Writes),4.4190,46.3090,90.9040
+2026-07-25T09:30:21Z,GET (Reads) ,0.0800,0.0910,0.1410
+2026-07-25T09:34:12Z,PUT (Writes),4.2340,43.9740,76.1270
+2026-07-25T09:34:12Z,GET (Reads) ,0.1100,0.1380,0.1470
+```
+
