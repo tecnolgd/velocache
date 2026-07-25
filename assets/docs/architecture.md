@@ -60,7 +60,7 @@ The system is built on two primary data structures that work in tandem to provid
 ```mermaid
     flowchart TB
     Start -->Register[Register Shutdown Handlers]
-    Register --> Load[Load Valid Data from the file] --> Menu
+    Register --> Load[Load valid data from the file] --> Menu
     Menu --> GetChoice[Get Validated Choice] --> Choice{Choice Is?}
     
     %% Option-1: Storage
