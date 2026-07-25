@@ -42,15 +42,18 @@ Select an option (1-6):
 
 ## Performance data
 
-> [!TIP]      
-> Check the sample [**BenchMark**](assets/v_bench_demo.gif) execution (Benchmarked for **100k operations** for **clear visibility** of the process execution )
+| Operation | ops/sec | Latency |
+|       |        | p50 | p95 | p99 | Avg |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **PUT** |  89118.4 | 4.234 μs | 43.974 μs | 76.127 μs | 11.221 μs |
+| **GET** | 4.41174 M | 0.11 μs | 0.138 μs |  0.147 μs |  0.226668 μs |
 
 - Results from the integrated **Benchmark Suite** [**10,000 operations** for both `getValue()` and `putValue()`]
   - Comprehensive latency percentile analysis (p50, p95, p99)
   - Throughput measurements in operations per second
   - Automated CSV logging to `assets/benchmarks_log.csv` for historical tracking and trend analysis
     
-    > Check the sample [CSV logging](assets/v_csv_demo.gif) GIF for visual understanding.
+    > Check the sample [CSV logging](assets/docs/usage.md#csv-logging-sample) sample for further details.
 
 ## Documentation
 - [Architecture](assets/docs/architecture.md)
