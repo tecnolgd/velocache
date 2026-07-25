@@ -27,7 +27,20 @@ The system is built on two primary data structures that work in tandem to provid
     1. **Check Existence:** If the key exists, update the value and Promote to Head.     
     2. **Check Capacity:** If the cache is full, the system identifies the node at the Tail (the oldest data).       
     3. **Evict:** Remove the Tail node from the DLL and erase its entry from the Hash-Map.       
-    4. **Insert:** Create a new node at the Head and record its pointer in the Hash-Map.      
+    4. **Insert:** Create a new node at the Head and record its pointer in the Hash-Map.
+
+- `printData()` Operation:     
+
+    1. Opens the file `assets/cache_data.txt`.
+    2. A `while` loop is used to read the contents of the file line by line.
+    3. The loop runs and prints line contents with some basic formatting until the `n-1`th line **with data** is encountered and then the `n`th line is printed with an additional `[ Recent ]` label.
+    4. Respective output messages are displayed based on the result of print operation.
+
+- `store_cache_data(Node* current)` Operation:  
+
+    1. Simlar file process to that of `print_data()` with the data getting written instead of read.
+    2. The data is written in a `tail-to-head` format to make sure the tail(least recently used) is printed at the top(1st line) for simpler eviction.
+    3. Respective output messages are displayed based on the result of store operation.
 
 - `clear_cache(Node* current)` Operation:       
 
@@ -36,11 +49,17 @@ The system is built on two primary data structures that work in tandem to provid
     3. **Map Purge:** Execute `cacheMap.clear()` to remove all stale key-to-node memory addresses.
     5. **Disk Wiping:** Open storage file in truncation mode (`std::ios::trunc`) to sync RAM state with persistent storage.
 
+- `exit(0)` Operation:      
+
+    1. This operation triggers `atexit()` function which inturn invokes `persistCacheOnExit()`.
+    2. The `persistCacheOnExit()` function makes sure to save the cache contents at that time and also clear all the nodes and related data to avoid memory leaks.
+
+
 ### Mermaid Overview
 
 ```mermaid
     flowchart TB
-    Start --> Load[Load Cache Data] --> Register[Register Shutdown Handlers] --> Menu
+    Start -->Load[Load Cache Data] --> Register[Register Shutdown Handlers] --> Menu
 
     Menu --> GetChoice[Get Validated Choice] --> Choice{Choice Is?}
     
