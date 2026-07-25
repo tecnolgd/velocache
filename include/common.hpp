@@ -8,6 +8,6 @@ void printData(); //print cache data form the file
 void store_cache_data(Node* current); //store cache data (persistent data)
 void load_from_file();
 void clear_cache(Node* current); //to clear the entire cache
-//
+int validate_file(std::ifstream &fileObj); // to load valid data from the file
 
 #endif
