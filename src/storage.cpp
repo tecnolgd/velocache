@@ -10,7 +10,7 @@
 void store_cache_data(Node* current){
     std::fstream cacheFile; //declare a file
     cacheFile.open("assets/cache_data.txt", std::ios::out); //write mode
-
+    
     if(cacheFile.is_open()){
         current = tail;
 
@@ -63,20 +63,18 @@ void printData(){
 void load_from_file(){
     std::ifstream load_file("assets/cache_data.txt");
     if(! load_file){
+        std::cerr<<"Error: Could not open file."<<std::endl;
         return;
     }
-
-    std::string key, data;
-
-    if(! std::filesystem::is_empty("assets/cache_data.txt")){
     
-        while (load_file >> key >> data) {
-            putValue(key, data); 
-        }
+    if( validate_file(load_file) ){ //call to 'validate_file() function in utils/input_validation.cpp
+        std::cout<<"LOG: Cache loaded from the file" <<std::endl;
     }
-
+    else{
+        std::cerr<<"Error: Loading failed."<<std::endl;
+        clear_cache(head);
+    }
     load_file.close();
-    std::cout<<"LOG: Cache loaded from the file" <<std::endl;
 }
 
 //clear cache
