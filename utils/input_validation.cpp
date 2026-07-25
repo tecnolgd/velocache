@@ -3,7 +3,10 @@
 
 #include "../include/cache.hpp"
 #include "../include/utils.hpp"
+#include <fstream>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 
 int getValidatedChoice() {
@@ -31,7 +34,12 @@ std::string getValidatedKeyInput() {
     while (true) {
         std::cout << "Enter key: ";
         if (!std::getline(std::cin, key) || key.empty()) {
-            std::cout << "Error: Key cannot be empty. Try again.\n";
+            std::cerr << "Error: Key cannot be empty. Try again.\n";
+            continue;
+        }
+        
+        if(key.find(' ') != std::string::npos){
+            std::cerr << "Error: Key must be a single string.\n";
             continue;
         }
 
@@ -54,6 +62,7 @@ std::string getValidatedValueInput() {
             std::cout << "Error reading input. Please try again.\n";
             continue;
         }
+        
         return value;
     }
 }
@@ -97,4 +106,30 @@ bool confirmOverwrite(const std::string& key) {
         }
         std::cout << "Please enter 'y' or 'n'.\n";
     }
+}
+
+//function to load valid data from the files
+int validate_file(std::ifstream &fileObj){
+    std::string line;
+    int success_line_count = 0;
+
+    while(std::getline(fileObj, line)){      
+        if(line.empty()){
+            continue;
+        }
+        
+        std::stringstream ss(line);
+        std::string key, value;
+
+        if(ss >> key >> value){
+            
+            putValue(key, value);
+            success_line_count ++;
+        }
+    }
+
+    if(success_line_count > 0){
+        return 1;
+    }
+    return 0;
 }
