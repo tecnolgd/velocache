@@ -10,6 +10,7 @@
 namespace {     //used to keep the enclosed functions private and accessible only in this file
     void persistCacheOnExit() {
         store_cache_data(head);
+        clear_cache(head);
     }
 
     void handleTerminationSignal(int signal) {
