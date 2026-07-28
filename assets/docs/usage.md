@@ -139,38 +139,40 @@ Benchmark results are automatically logged to **`assets/benchmarks_log.csv`** wi
 This allows for historical performance tracking and trend analysis across multiple benchmark runs.
 
 ### Sample Output
-```
+
+```txt
 ================================================
-              velocache Benchmark           
+              velocache Benchmark
 ================================================
-  PUT (Writes) Throughput : 16718 ops/sec
+  PUT (Writes) Throughput : 389779 ops/sec
   Latency Metrics (Microseconds):
-    Average        : 59.8157 μs
-    p50 (Median)   : 4.043 μs
-    p95 Tail       : 43.999 μs
-    p99 Tail       : 72.112 μs
+    Average        : 2.56555 μs
+    p50 (Median)   : 1.901 μs
+    p95 Tail       : 2.829 μs
+    p99 Tail       : 5.511 μs
 ------------------------------------------------
 [✓] PUT (Writes) metrics successfully exported to assets/benchmarks_log.csv
 ________________________________________________
 
-  GET (Reads)  Throughput : 3.92583e+06 ops/sec
+  GET (Reads)  Throughput : 6.20457e+06 ops/sec
   Latency Metrics (Microseconds):
-    Average        : 0.254723 μs
-    p50 (Median)   : 0.12 μs
-    p95 Tail       : 0.138 μs
-    p99 Tail       : 0.157 μs
+    Average        : 0.161171 μs
+    p50 (Median)   : 0.074 μs
+    p95 Tail       : 0.083 μs
+    p99 Tail       : 0.083 μs
 ------------------------------------------------
 [✓] GET (Reads)  metrics successfully exported to assets/benchmarks_log.csv
 ________________________________________________
 ```
 
-## CSV logging sample
+### CSV logging sample
 
 ```csv
 timestamp,operation,p50_latency_us,p95_latency_us,p99_latency_us
-2026-07-25T09:30:21Z,PUT (Writes),4.4190,46.3090,90.9040
-2026-07-25T09:30:21Z,GET (Reads) ,0.0800,0.0910,0.1410
-2026-07-25T09:34:12Z,PUT (Writes),4.2340,43.9740,76.1270
-2026-07-25T09:34:12Z,GET (Reads) ,0.1100,0.1380,0.1470
+ 2026-07-28T08:05:51Z,PUT (Writes),1.9010,2.8290,5.5110
+2026-07-28T08:05:51Z,GET (Reads) ,0.0740,0.0830,0.0830
+2026-07-28T08:11:18Z,PUT (Writes),1.8690,2.8030,7.1020
+2026-07-28T08:11:18Z,GET (Reads) ,0.0760,0.0860,0.0860
+2026-07-28T08:11:40Z,PUT (Writes),1.8270,2.6930,5.8710
+2026-07-28T08:11:40Z,GET (Reads) ,0.1120,0.1310,0.1590
 ```
-
