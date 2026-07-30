@@ -7,11 +7,40 @@
 #include <csignal>
 #include <cstdlib>
 
-Cache ch(3);
+namespace {
+    Cache* g_cache = nullptr;
 
-namespace {     //used to keep the enclosed functions private and accessible only in this file
+    int parseCacheCapacity(int argc, char* argv[], int defaultCapacity = 3) {
+        int capacity = defaultCapacity;
+        for (int i = 1; i < argc; ++i) {
+            std::string arg = argv[i];
+            if (arg == "--capacity" || arg == "-c") {
+                if (i + 1 < argc) {
+                    try {
+                        capacity = std::stoi(argv[++i]);
+                    } catch (...) {
+                        capacity = defaultCapacity;
+                    }
+                }
+            } else if (arg.rfind("--capacity=", 0) == 0) {
+                try {
+                    capacity = std::stoi(arg.substr(11));
+                } catch (...) {
+                    capacity = defaultCapacity;
+                }
+            } else if (arg == "--help" || arg == "-h") {
+                std::cout << "Usage: ./build/v_server [--capacity N]" << std::endl;
+                std::cout << "  --capacity, -c   Set the cache maximum size (default: 3)" << std::endl;
+                std::exit(0);
+            }
+        }
+        return capacity > 0 ? capacity : defaultCapacity;
+    }
+
     void persistCacheOnExit() {
-        ch.store_cache_data(); //store cache data for the next session
+        if (g_cache) {
+            g_cache->store_cache_data(); // store cache data for the next session
+        }
     }
 
     void handleTerminationSignal(int signal) {
@@ -26,14 +55,19 @@ namespace {     //used to keep the enclosed functions private and accessible onl
     }
 }
 
-int main(){
+int main(int argc, char* argv[]) {
     int number, choice;
     std::string userName, data;
     std::string dataNeeded;
 
-    std::cout<<"velocache >>>>\n";
+    int capacity = parseCacheCapacity(argc, argv);
+    Cache cache(capacity);
+    g_cache = &cache;
 
-    ch.load_from_file(); //load cache data once every session
+    std::cout << "velocache >>>>\n";
+    std::cout << "Cache capacity: " << capacity << "" << std::endl;
+
+    cache.load_from_file(); //load cache data once every session
 
     registerShutdownHandlers(); //save cache data during normal exits and termination signals
 
@@ -54,12 +88,12 @@ int main(){
                     
                     //runs always, returns true if overwrite is needed or even if there is no overwrite issue; returns false if overwrite should be avoided and just continue ot the next input
                     //prompts and messages are displayed by the function itself
-                    if (!confirmOverwrite(userName, ch)) {
+                    if (!confirmOverwrite(userName, cache)) {
                         continue;
                     }
 
                     data = getValidatedValueInput();
-                    ch.putValue(userName, data);
+                    cache.putValue(userName, data);
                 }
                 break;
 
@@ -67,7 +101,7 @@ int main(){
                 std::cout<<"\n";
                 dataNeeded = getValidatedKeyInput();
                 if (!dataNeeded.empty()) {
-                    std::cout<<"Getting data: "<< ch.getValue(dataNeeded)<<std::endl;
+                    std::cout << "Getting data: " << cache.getValue(dataNeeded) << std::endl;
                 }
                 break;
 
@@ -78,18 +112,18 @@ int main(){
             
             case 4: 
                 std::cout << "Saving cache to disk..." << std::endl;
-                ch.store_cache_data();
+                cache.store_cache_data();
                 std::cout << "Cache saved successfully." << std::endl;
                 break;
 
             case 5: 
-                std::cout<<"Clearing cache..."<<std::endl;
-                ch.clear_cache();
+                std::cout << "Clearing cache..." << std::endl;
+                cache.clear_cache();
                 break;
 
-            case 6: 
-                std::cout<<"Server terminated.\n";
-                exit(0); //triggers atexit()
+            case 6:
+                std::cout << "Server terminated.\n";
+                return 0; // normal shutdown triggers destructors and atexit handlers
             
             default: std::cout<<"Invalid choice! Try again.\n";
         }
