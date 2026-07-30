@@ -86,30 +86,37 @@ int getValidatedNumberInput(int maxLimit) {
     return 0;
 }
 
-bool confirmOverwrite(const std::string& key) {
+bool confirmOverwrite(const std::string& key, const Cache &cache) {
     std::string input;
-    while (true) {
-        std::cout << "Warning: key '" << key << "' already exists. Overwrite? (y/n): ";
-        if (!std::getline(std::cin, input)) {
-            std::cin.clear();
-            continue;
+    
+    if (cache.contains(key)) {
+        while (true) {
+            std::cout << "Warning: key '" << key << "' already exists. Overwrite? (y/n): ";
+
+            if (!std::getline(std::cin, input)) {
+                std::cin.clear();
+                continue;
+            }
+            if (input.empty()) {
+                continue;
+            }
+            char choice = std::tolower(input[0]);
+            if (choice == 'y') {
+                std::cout << "Overwriting existing value for key: " << key << "\n";
+                return true;
+            }
+            if (choice == 'n') {
+                std::cout << "Skipped duplicate key: " << key << "\n";
+                return false;
+            }
+            std::cout << "Please enter 'y' or 'n'.\n";
         }
-        if (input.empty()) {
-            continue;
-        }
-        char choice = std::tolower(input[0]);
-        if (choice == 'y') {
-            return true;
-        }
-        if (choice == 'n') {
-            return false;
-        }
-        std::cout << "Please enter 'y' or 'n'.\n";
     }
+    return true;
 }
 
 //function to load valid data from the files
-int validate_file(std::ifstream &fileObj){
+int validate_file(std::ifstream &fileObj, Cache &cache) {
     std::string line;
     int success_line_count = 0;
 
@@ -126,7 +133,7 @@ int validate_file(std::ifstream &fileObj){
             ss >> std::ws;  
             std::getline(ss, value);
 
-            putValue(key, value);
+            cache.putValue(key, value);
             success_line_count ++;
         }
     }
