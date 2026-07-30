@@ -108,4 +108,4 @@ One of velocache's unique features is its **Smart Hydration** policy.
 
 - **Header-Only vs. Compiled:** The core engine logic is isolated in `src/cache.cpp` and `include/cache.hpp` to allow for easy integration as a library in other C++ projects.        
 
-- **Optimization:** Uses **-O3 compiler flags** during the build process to maximize throughput, currently clocked at **25,000+ ops/sec**.      
+- **Optimization:** Uses **-O3 compiler flags** during the build process to maximize throughput, currently clocked at **1.00 M+ ops/sec**.      
