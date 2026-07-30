@@ -15,14 +15,14 @@ The system is built on two primary data structures that work in tandem to provid
 
 ## 2. Algorithmic Flow ($O(1)$ Complexity)  
 
-- `getValue(std::string key) `Operation: 
+- `Cache::getValue(const std::string& key) `Operation: 
 
     1. **Lookup:** Check the Hash-Map for the key      
     2. **Cache Hit:** If found, use the pointer to jump directly to the DLL node.       
     3.  **Promote:** Remove the node from its current position in the DLL and re-insert it at the Head.     
     4.  **Return:** Return the value.      
 
-- `putValue(std::string key, std::string value)` Operation:      
+- `Cache::putValue(const std::string& key, const std::string& value)` Operation:      
 
     1. **Check Existence:** If the key exists, update the value and Promote to Head.     
     2. **Check Capacity:** If the cache is full, the system identifies the node at the Tail (the oldest data).       
@@ -36,23 +36,23 @@ The system is built on two primary data structures that work in tandem to provid
     3. The loop runs and prints line contents with some basic formatting until the `n-1`th line **with data** is encountered and then the `n`th line is printed with an additional `[ Recent ]` label.
     4. Respective output messages are displayed based on the result of print operation.
 
-- `store_cache_data(Node* current)` Operation:  
+- `Cache::store_cache_data()` Operation:  
 
-    1. Simlar file process to that of `print_data()` with the data getting written instead of read.
-    2. The data is written in a `tail-to-head` format to make sure the tail(least recently used) is printed at the top(1st line) for simpler eviction.
-    3. Respective output messages are displayed based on the result of store operation.
+    1. Similar file process to that of `printData()` with the data getting written instead of read.
+    2. The data is written in a `tail-to-head` format so the least recently used item is saved first and the most recently used item is saved last.
+    3. Respective output messages are displayed based on the result of the store operation.
 
-- `clear_cache(Node* current)` Operation:       
+- `Cache::clear_cache()` Operation:       
 
-    1. **DLL Deallocation:** Traverse the list from `head` to `Tail`, calling `delete` on each node to free dynamic heap memory.
+    1. **DLL Deallocation:** Traverse the list from `head` to `tail`, calling `delete` on each node to free dynamic heap memory.
     2. **Pointer Reset:** Set `head = nullptr` and `tail = nullptr` to eliminate dangling references.
     3. **Map Purge:** Execute `cacheMap.clear()` to remove all stale key-to-node memory addresses.
-    5. **Disk Wiping:** Open storage file in truncation mode (`std::ios::trunc`) to sync RAM state with persistent storage.
+    4. **Disk Wiping:** Open storage file in truncation mode (`std::ios::trunc`) to sync disk state with the cleared cache.
 
 - `exit(0)` Operation:      
 
-    1. This operation triggers `atexit()` function which inturn invokes `persistCacheOnExit()`.
-    2. The `persistCacheOnExit()` function makes sure to save the cache contents at that time and also clear all the nodes and related data to avoid memory leaks.
+    1. This operation triggers the `atexit()`-registered callback, which invokes `persistCacheOnExit()`.
+    2. The `persistCacheOnExit()` function saves cache contents before shutdown. It doesnot necessarily clear the cache afterward, because the destructor will handle in-memory cleanup on normal program termination.
 
 
 ### Mermaid Overview
