@@ -129,7 +129,7 @@ int validate_file(std::ifstream &fileObj, Cache &cache) {
         std::string key, value;
 
         if(ss >> key){
-            
+            // check for empty values as well since even a single string(key) would result in a success which is wrong
             ss >> std::ws;  
             std::getline(ss, value);
 
