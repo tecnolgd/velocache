@@ -31,6 +31,7 @@ void printMetrics(const std::string& opName, int operations, double totalTime, s
 }
 
 void runFullSuite(int operations) {
+    Cache cache(operations);
     
     // ----------------------------------------------
     // 1. BENCHMARK PUT OPERATIONS (WRITE PATH)
@@ -45,7 +46,7 @@ void runFullSuite(int operations) {
         std::string val = "data" + std::to_string(i);
 
         auto opStart = std::chrono::high_resolution_clock::now();
-        putValue(key, val);
+        cache.putValue(key, val);
         auto opEnd = std::chrono::high_resolution_clock::now();
 
         std::chrono::duration<double, std::micro> opDiff = opEnd - opStart;
@@ -73,7 +74,7 @@ void runFullSuite(int operations) {
         std::string key = "user" + std::to_string(i);
 
         auto opStart = std::chrono::high_resolution_clock::now();
-        getValue(key);
+        cache.getValue(key);
         auto opEnd = std::chrono::high_resolution_clock::now();
 
         std::chrono::duration<double, std::micro> opDiff = opEnd - opStart;

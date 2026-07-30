@@ -44,8 +44,8 @@ Select an option (1-6):
 
 | Operation | Throughput (ops/sec) | Latency (p50) | Latency (p95) | Latency (p99) | Latency (Avg) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **PUT** | 389,779  | 1.90 μs | 2.83 μs | 5.51 μs | 2.57 μs |
-| **GET** | 6.20 M | 0.07 μs | 0.08 μs | 0.08 μs | 0.16 μs |
+| **PUT** | 1.00 M  | 0.26 μs | 1.37 μs | 6.28 μs | 0.99 μs |
+| **GET** | 2.53 M | 0.23 μs | 0.76 μs | 1.066 μs | 0.40 μs |
 
 - Results from the integrated **Benchmark Suite** [**10,000 operations** for both `getValue()` and `putValue()`]
   - Comprehensive latency percentile analysis (p50, p95, p99)

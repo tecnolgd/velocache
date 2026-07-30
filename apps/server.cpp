@@ -7,10 +7,11 @@
 #include <csignal>
 #include <cstdlib>
 
+Cache ch(3);
+
 namespace {     //used to keep the enclosed functions private and accessible only in this file
     void persistCacheOnExit() {
-        store_cache_data(head);
-        clear_cache(head);
+        ch.store_cache_data(); //store cache data for the next session
     }
 
     void handleTerminationSignal(int signal) {
@@ -32,7 +33,7 @@ int main(){
 
     std::cout<<"velocache >>>>\n";
 
-    load_from_file(); //load cache data once every session
+    ch.load_from_file(); //load cache data once every session
 
     registerShutdownHandlers(); //save cache data during normal exits and termination signals
 
@@ -50,17 +51,15 @@ int main(){
                 for(int i=0; i<number; i++){
                     std::cout<<"\n--- User "<<i+1<<" ---\n";
                     userName = getValidatedKeyInput();
-
-                    if (cacheMap.find(userName) != cacheMap.end()) {
-                        if (!confirmOverwrite(userName)) {
-                            std::cout << "Skipped duplicate key: " << userName << "\n";
-                            continue;
-                        }
-                        std::cout << "Overwriting existing value for key: " << userName << "\n";
+                    
+                    //runs always, returns true if overwrite is needed or even if there is no overwrite issue; returns false if overwrite should be avoided and just continue ot the next input
+                    //prompts and messages are displayed by the function itself
+                    if (!confirmOverwrite(userName, ch)) {
+                        continue;
                     }
 
                     data = getValidatedValueInput();
-                    putValue(userName, data);
+                    ch.putValue(userName, data);
                 }
                 break;
 
@@ -68,7 +67,7 @@ int main(){
                 std::cout<<"\n";
                 dataNeeded = getValidatedKeyInput();
                 if (!dataNeeded.empty()) {
-                    std::cout<<"Getting data: "<< getValue(dataNeeded)<<std::endl;
+                    std::cout<<"Getting data: "<< ch.getValue(dataNeeded)<<std::endl;
                 }
                 break;
 
@@ -79,13 +78,13 @@ int main(){
             
             case 4: 
                 std::cout << "Saving cache to disk..." << std::endl;
-                store_cache_data(head);
+                ch.store_cache_data();
                 std::cout << "Cache saved successfully." << std::endl;
                 break;
 
             case 5: 
                 std::cout<<"Clearing cache..."<<std::endl;
-                clear_cache(head);
+                ch.clear_cache();
                 break;
 
             case 6: 
