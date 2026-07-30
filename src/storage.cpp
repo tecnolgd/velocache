@@ -5,25 +5,22 @@
 #include <string>
 #include "../include/cache.hpp"
 #include "../include/common.hpp"
+#include "../include/utils.hpp"
 
 //to save data present in the DLL
-void store_cache_data(Node* current){
-    std::fstream cacheFile; //declare a file
-    cacheFile.open("assets/cache_data.txt", std::ios::out); //write mode
-    
-    if(cacheFile.is_open()){
-        current = tail;
+void Cache::store_cache_data() {
+    std::fstream cacheFile("assets/cache_data.txt", std::ios::out);
+    if (!cacheFile.is_open()) {
+        std::cout << "File unable to open";
+        return;
+    }
 
-    while(current){
-        cacheFile <<current->key <<"     "<< current->value <<std::endl;
-        current= current->prev;
+    Node* current = tail;
+    while (current) {
+        cacheFile << current->key << "     " << current->value << std::endl;
+        current = current->prev;
     }
-    std::cout<<std::endl;
-    }
-    else{
-        std::cout<<"File unable to open";
-    }
-    cacheFile.close();
+    std::cout << std::endl;
 }
 
 //to print DLL data from the file
@@ -60,41 +57,37 @@ void printData(){
 }
 
 //load cache data from the last session
-void load_from_file(){
+void Cache::load_from_file() {
     std::ifstream load_file("assets/cache_data.txt");
-    if(! load_file){
-        std::cerr<<"Error: Could not open file."<<std::endl;
+    if (!load_file) {
+        std::cerr << "Error: Could not open file." << std::endl;
         return;
     }
-    
-    if( validate_file(load_file) ){ //call to 'validate_file() function in utils/input_validation.cpp
-        std::cout<<"LOG: Cache loaded from the file" <<std::endl;
-    }
-    else{
-        std::cerr<<"Error: Loading failed."<<std::endl;
-        clear_cache(head);
+
+    if (validate_file(load_file, *this)) {
+        std::cout << "LOG: Cache loaded from the file" << std::endl;
+    } else {
+        std::cerr << "Error: Loading failed." << std::endl;
+        clear_cache();
     }
     load_file.close();
 }
 
 //clear cache
-void clear_cache(Node* current){
-   
-    while(current != nullptr){
+void Cache::clear_cache() {
+    Node* current = head;
+    while (current != nullptr) {
         Node* next_node = current->next;
         delete current;
         current = next_node;
     }
-   
-    //reset head and tail pointers
+
     head = nullptr;
     tail = nullptr;
-    
-    //clear the map and set its size to zero
     cacheMap.clear();
-     
+
     std::ofstream clear_file("assets/cache_data.txt", std::ios::out | std::ios::trunc);
     clear_file.close();
 
-    std::cout<<"Cache cleared successfully."<<std::endl;
+    std::cout << "Cache cleared successfully." << std::endl;
 } 
