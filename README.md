@@ -20,6 +20,7 @@
 
  ```txt
 velocache >>>>
+Cache capacity: 3
 LOG: Cache loaded from the file
 
 Operations supported

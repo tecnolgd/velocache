@@ -14,10 +14,11 @@
     - For in-depth details on how this cache server is implemented, check [LRU eviction](https://www.geeksforgeeks.org/dsa/lru-cache-implementation-using-double-linked-lists/).<!--[architecture]() :insert link to hash-map and dll based storage & retrieval of data info in future versions-->
 
 2. The application would ask for number of nodes to be stored in the cache.
-    - As defined in the **include/cache.hpp**, the maximum number of data elements is restricted to **3**.
+    - The maximum capacity of the cache is defined during the execution of the tool(`./build/v_server`) with the default capacity being set to **3**.
 
         ```txt
         velocache >>>>
+        Cache capacity: 3
         LOG: Cache loaded from the file
 
         Operations supported
@@ -27,7 +28,7 @@
         4. Save Cache
         5. Clear Cache
         6. Exit
-        Select an option (1-6): 
+        Select an option (1-6):
         ```
 
 3. Enter the key and data pairs as prompted by the application. By default, the application takes **strings as both key and value** unless modified by the user for their needs and requirements.
