@@ -15,9 +15,9 @@ The system is built on two primary data structures that work in tandem to provid
 
 ## 2. Algorithmic Flow ($O(1)$ Complexity)  
 
-- `Cache::getValue(const std::string& key) `Operation: 
+- `Cache::getValue(const std::string& key)` Operation: 
 
-    1. **Lookup:** Check the Hash-Map for the key      
+    1. **Lookup:** Check the Hash-Map for the key. 
     2. **Cache Hit:** If found, use the pointer to jump directly to the DLL node.       
     3.  **Promote:** Remove the node from its current position in the DLL and re-insert it at the Head.     
     4.  **Return:** Return the value.      
@@ -52,8 +52,7 @@ The system is built on two primary data structures that work in tandem to provid
 - `exit(0)` Operation:      
 
     1. This operation triggers the `atexit()`-registered callback, which invokes `persistCacheOnExit()`.
-    2. The `persistCacheOnExit()` function saves cache contents before shutdown. It doesnot necessarily clear the cache afterward, because the destructor will handle in-memory cleanup on normal program termination.
-
+    2. The `persistCacheOnExit()` function saves cache contents before shutdown. It does not necessarily clear the cache afterward, because the destructor will handle in-memory cleanup on normal program termination.
 
 ### Mermaid Overview
 
@@ -94,11 +93,13 @@ The system is built on two primary data structures that work in tandem to provid
     %% Invalid Choice
     Choice -- Default/Invalid --> Invalid[Print Invalid Choice] --> Menu
 ```
+
+
 ## 3. Persistence & Hydration Logic 
 
 One of velocache's unique features is its **Smart Hydration** policy.    
 
-- **Tail-to-Head Serialization:** When saving the cache to a file, velocache traverses the DLL from the Tail to the Head. 
+- **Tail-to-Head Serialization:** When saving the cache data to a file, velocache traverses the DLL from the Tail to the Head. 
 
 - **Why?**  When the system restarts and reads the file line-by-line, the items at the end of the file (**the Head/MRU items**) are the last to be inserted into the fresh DLL. This naturally pushes them to the Head of the new list, perfectly reconstructing the cache's "**state of mind**" from before the shutdown.        
 

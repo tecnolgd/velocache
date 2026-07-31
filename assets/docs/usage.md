@@ -5,16 +5,17 @@
 > Keep assets/cache_data.txt file open side-by -side to see the cache behavior and LRU logic in real-time.
 
 ### The Application flow
+
 > [!NOTE]     
 > A do-while loop is used for multiple sessions with user control to end the session.
 
 1. At the start of the execution of the application, the **server** (`apps/server.cpp`) loads data from the previous session if available.    
-    - This data is loaded from a file called **cache_data.txt** located in the **assets/** folder. (This happens once every new session)   
-    - You can now customize the maximum cache capacity with `--capacity` or `-c` when launching the program. If you do not provide a value, the cache defaults to **3**.   
+    - This data is loaded from a file called `cache_data.txt` located in the `assets/` folder. (This happens once every new session)   
+    - You can customize the maximum cache capacity with `--capacity` or `-c` when launching the program. If you do not provide a value, the cache defaults to **3**.   
     - For in-depth details on how this cache server is implemented, check [LRU eviction](https://www.geeksforgeeks.org/dsa/lru-cache-implementation-using-double-linked-lists/).<!--[architecture]() :insert link to hash-map and dll based storage & retrieval of data info in future versions-->
 
 2. The application would ask for number of nodes to be stored in the cache.
-    - The maximum capacity of the cache is defined during the execution of the tool(`./build/v_server`) with the default capacity being set to **3**.
+    - The maximum capacity of the cache is defined during execution (`./build/v_server`) with the default capacity being set to **3**.
 
         ```txt
         velocache >>>>
@@ -93,7 +94,7 @@
         Getting data: Value NOT found!
         ```
 
-5. The cache can be cleared completely bu the user via option **5**(Clear Cache). This operation clears all the nodes and the pointers with resetting `head` and `tail` to `nullptr`. It also clears `cacheMap` and makes its size to 0. The file(`assets/cache_data.txt`) is also truncated.
+5. The cache can be cleared completely bu the user via option **5**(Clear Cache). This operation clears all the nodes and the pointers with resetting `head` and `tail` to `nullptr`. It also clears `cacheMap` and makes its size to **0**. The file(`assets/cache_data.txt`) is also truncated.
     ```txt
     Select an option (1-6): 5
     Clearing cache...
@@ -112,6 +113,7 @@
 ## The Benchmark tool
 
 ### Overview
+
 The velocache benchmark suite is designed to measure and track performance metrics across different cache operations. It provides comprehensive latency analysis and throughput measurements with automated CSV logging for trend analysis.
 
 ### Running the Benchmark
@@ -123,6 +125,7 @@ The velocache benchmark suite is designed to measure and track performance metri
    ```bash
    ./build/v_bench
    ```
+
 2. The program executes **10,000 iterations** for both `getValue()` and `putValue()` operations and displays real-time metrics including:
    - **Throughput:** Operations per second (ops/sec)
    - **Latency Percentiles:** p50 (median), p95, and p99 tail latencies in microseconds
