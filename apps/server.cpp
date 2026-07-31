@@ -12,26 +12,14 @@ namespace {
 
     int parseCacheCapacity(int argc, char* argv[], int defaultCapacity = 3) {
         int capacity = defaultCapacity;
-        for (int i = 1; i < argc; ++i) {
+        for (int i = 1; i + 1 < argc; ++i) {
             std::string arg = argv[i];
             if (arg == "--capacity" || arg == "-c") {
-                if (i + 1 < argc) {
-                    try {
-                        capacity = std::stoi(argv[++i]);
-                    } catch (...) {
-                        capacity = defaultCapacity;
-                    }
-                }
-            } else if (arg.rfind("--capacity=", 0) == 0) {
                 try {
-                    capacity = std::stoi(arg.substr(11));
+                    capacity = std::stoi(argv[++i]);
                 } catch (...) {
                     capacity = defaultCapacity;
                 }
-            } else if (arg == "--help" || arg == "-h") {
-                std::cout << "Usage: ./build/v_server [--capacity N]" << std::endl;
-                std::cout << "  --capacity, -c   Set the cache maximum size (default: 3)" << std::endl;
-                std::exit(0);
             }
         }
         return capacity > 0 ? capacity : defaultCapacity;
@@ -61,7 +49,7 @@ int main(int argc, char* argv[]) {
     std::string dataNeeded;
 
     int capacity = parseCacheCapacity(argc, argv);
-    Cache cache(capacity);
+    static Cache cache(capacity); // static so g_cache remains valid for the atexit callback
     g_cache = &cache;
 
     std::cout << "velocache >>>>\n";
