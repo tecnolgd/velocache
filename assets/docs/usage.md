@@ -8,15 +8,17 @@
 > [!NOTE]     
 > A do-while loop is used for multiple sessions with user control to end the session.
 
-1. At the start of the excecution of the application, the **server** (src/server.cpp) will be already loaded with data from the previous session(if any).    
+1. At the start of the execution of the application, the **server** (`apps/server.cpp`) loads data from the previous session if available.    
     - This data is loaded from a file called **cache_data.txt** located in the **assets/** folder. (This happens once every new session)   
+    - You can now customize the maximum cache capacity with `--capacity` or `-c` when launching the program. If you do not provide a value, the cache defaults to **3**.   
     - For in-depth details on how this cache server is implemented, check [LRU eviction](https://www.geeksforgeeks.org/dsa/lru-cache-implementation-using-double-linked-lists/).<!--[architecture]() :insert link to hash-map and dll based storage & retrieval of data info in future versions-->
 
 2. The application would ask for number of nodes to be stored in the cache.
-    - As defined in the **include/cache.hpp**, the maximum number of data elements is restricted to **3**.
+    - The maximum capacity of the cache is defined during the execution of the tool(`./build/v_server`) with the default capacity being set to **3**.
 
         ```txt
         velocache >>>>
+        Cache capacity: 3
         LOG: Cache loaded from the file
 
         Operations supported
@@ -26,7 +28,7 @@
         4. Save Cache
         5. Clear Cache
         6. Exit
-        Select an option (1-6): 
+        Select an option (1-6):
         ```
 
 3. Enter the key and data pairs as prompted by the application. By default, the application takes **strings as both key and value** unless modified by the user for their needs and requirements.

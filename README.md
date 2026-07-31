@@ -20,6 +20,7 @@
 
  ```txt
 velocache >>>>
+Cache capacity: 3
 LOG: Cache loaded from the file
 
 Operations supported
@@ -38,6 +39,7 @@ Select an option (1-6):
 - **Smart Hydration:** Tail-to-Head file serialization ensures cache priority is preserved across system restarts.    
 - **LRU Cache Invalidation:** Automatic memory management with Least Recently Used (LRU) eviction policy when capacity is reached.    
 - **Persistent Storage:** Filesystem-based cache persistence for recovery after restarts, explicit termination, and supported interruption signals.
+- **Runtime Configurable Capacity:** The cache max size can be set at launch with `--capacity` or `-c`.
 - **Minimal Footprint:** Zero external dependencies; optimized for embedded or sidecar use cases.
 
 ## Performance data
@@ -90,6 +92,16 @@ make all
     ```bash
     make v_server
     ```       
+    - Run with a custom cache size:
+    ```bash
+    ./build/v_server --capacity 10 # '-c' can also be used in place of '--capacity
+    ```
+    or
+    - Run directly
+    ```bash
+    ./build/v_server # Capacity defaults to 3
+    ```
+    
     - **The Benchmark Tool**:
     ```bash
     make v_bench
