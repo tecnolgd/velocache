@@ -15,7 +15,7 @@ To set up your local development environment and build the project, please follo
 
 - **Code Style:** Keep it clean and readable. Use standard C++17/20 practices.
 - **Performance:** velocache’s core goal is low overhead. Any new feature should have a minimal footprint on system resources.
-- **Testing:** If you add a new feature or benchmark, make it modular and ensure it does not break the main server, cache, or storage paths.
+- **Testing:** If you add a new feature or benchmark, make it modular and ensure it does not break the main server, cache, or storage paths. Adding new test cases in `tests/test_cache.cpp` would be appreciated.
 
 ## The Required Contribution Workflow
 
@@ -42,6 +42,26 @@ To keep the codebase stable and ensure your time isn’t wasted, all contributor
 - **Language:** All source code, terminal logs, pull request descriptions, and in-line code comments **must be written in English**.
 - Keep pull request descriptions clean, formatted, and focused entirely on the issue layout.
 
+### Make Changes & Submit PR
+
+1. Create a feature branch: `git checkout -b feature/your-feature`
+2. Commit your changes: `git commit -m "feat: description"`
+3. Push to your fork: `git push origin feature/your-feature`
+4. Open a Pull Request with a clear description linking to the issue
+
+### Local Development
+
+Run the tool from source:    
+```bash
+make v_server
+./build/v_server
+```
+
+Additionally, run the test suite to make sure all test cases pass.
+```bash
+make test # requires Google Tests
+```
+ 
 ### Current Priorities
 Looking for a place to start?
 - Check the [Roadmap](assets/docs/roadmap.md) for planned ideas.
